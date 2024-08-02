@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center; /* 수평 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            background-color: #f0f0f0; /* 배경 색상 (선택 사항) */
+        }
+        .container {
+            width: 800px; /* 사각형의 너비 */
+            height: 400px; /* 사각형의 높이 */
+            border: 3px solid orange; /* 테두리 색상 */
+            padding: 20px; /* 사각형 내부 여백 */
+            border-radius: 40px; /* 테두리 둥글게 만들기 */
+            background-color: #f9f9f9; /* 배경 색상 (선택 사항) */
+            display: flex; /* Flexbox 사용 */
+            flex-direction: column; /* 세로 방향으로 요소 배치 */
+            justify-content: center; /* 수직 중앙 정렬 */
+            align-items: center; /* 수평 중앙 정렬 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+        }
+        .red {
+            width: 300px;
+            height: 50px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin: auto;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+        .font {
+            text-align: center;
+            font-size: x-large;
+        }
+        .id {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            border: 3px solid brown;
+            border-radius: 10px;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .idWrite1, .idWrite2, .idWrite3 {
+            border: 3px solid orange;
+            border-radius: 10px;
+            font-size: 20px;
+            height: 50px;
+        }
+        .idWrite1 {
+            width: 500px;
+        }
+        .idWrite2 {
+            width: 400px;
+        }
+        .idWrite3 {
+            width: 360px;
+        }
+        .flex {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .submit {
+            height: 50px;
+            width: 100px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin: auto;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-button {
+            background-color: white; /* 버튼 색상 */
+            border: 3px solid orange;
+            color: black; /* 버튼 텍스트 색상 */
+            padding: 10px 20px; /* 버튼 패딩 */
+            border-radius: 10px; /* 버튼 테두리 둥글게 */
+            cursor: pointer; /* 마우스 포인터 변경 */
+            font-size: 20px; /* 버튼 텍스트 크기 */
+            width: 80px;
+            height: 55px;
+        }
+        .dropdown-content {
+            display: none; /* 기본적으로 숨김 */
+            position: absolute;
+            background-color: #f9f9f9; /* 드롭다운 배경색 */
+            min-width: 160px; /* 드롭다운 최소 너비 */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* 그림자 효과 */
+            z-index: 1; /* 드롭다운이 다른 콘텐츠 위에 보이도록 설정 */
+            border-radius: 5px; /* 드롭다운 테두리 둥글게 */
+        }
+        .dropdown-content a {
+            color: black; /* 항목 텍스트 색상 */
+            padding: 12px 16px; /* 항목 패딩 */
+            text-decoration: none; /* 링크 밑줄 제거 */
+            display: block; /* 항목 블록 레벨 요소 */
+            font-size: 20px;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .numReceive {
+            background-color: rgb(255, 146, 146); /* 버튼 색상 */
+            border: none;
+            color: white; /* 버튼 텍스트 색상 */
+            padding: 10px 20px; /* 버튼 패딩 */
+            border-radius: 10px; /* 버튼 테두리 둥글게 */
+            cursor: pointer; /* 마우스 포인터 변경 */
+            font-size: 15px; /* 버튼 텍스트 크기 */
+            width: 120px;
+            height: 55px;
+            font-weight: 700;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2 class="red">비밀번호 찾기</h2>
+        </div>
+        <div><br><br>
+            <input type="text" class="idWrite1" id="name" placeholder="  이름을 입력하세요">
+        </div><br>
+        <div class="flex">
+            <div class="dropdown">
+                <button class="dropdown-button" id="countryCode">+82</button>
+                <div class="dropdown-content">
+                    <a href="#">+82</a>
+                    <a href="#">+61</a>
+                    <a href="#">+91</a>
+                    <a href="#">+86</a>
+                    <a href="#">+44</a>
+                    <a href="#">+62</a>
+                </div>
+            </div>
+            <input type="text" class="idWrite2" id="phone" placeholder="  휴대전화번호 입력">
+        </div><br>
+        <div class="flex">
+            <input type="text" class="idWrite3" id="verification" placeholder="  인증번호 4자리 입력">
+            <input type="button" class="numReceive" value="인증번호 받기">
+        </div><br>
+        <input type="submit" value="확인" class="submit" onclick="validateForm()">
+        <div id="error" class="error"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownButton = document.querySelector('.dropdown-button');
+            const dropdownLinks = document.querySelectorAll('.dropdown-content a');
+    
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // 링크 클릭 기본 동작 방지
+                    const selectedValue = this.textContent; // 항목의 텍스트 가져오기
+                    dropdownButton.textContent = selectedValue; // 버튼 텍스트 업데이트
+                });
+            });
+        });
+
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const verification = document.getElementById('verification').value.trim();
+            const errorDiv = document.getElementById('error');
+
+            // 초기화
+            errorDiv.textContent = '';
+
+            const phoneRegex = /^[0-9]{10,11}$/; // 전화번호 정규식 (10자리 또는 11자리 숫자)
+            // 간단한 유효성 검사
+            if (name === '') {
+                alert('이름을 입력해 주세요.');
+            }
+
+            else if (!phoneRegex.test(phone)) {
+                alert("유효한 전화번호를 입력해 주세요.");
+            }
+
+            else if (verification.length !== 4) {
+                alert ('인증번호는 4자리여야 합니다.');
+            }
+
+            else  {
+                // 모든 입력이 유효한 경우, 성공 메시지 또는 폼 제출 로직
+                
+                alert('입력 완료');
+                // document.getElementById('myForm').submit(); // 실제 폼 제출
+            }
+        }
+    </script>
+</body>
+</html>
