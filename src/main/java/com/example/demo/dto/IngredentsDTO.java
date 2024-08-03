@@ -16,7 +16,7 @@ public class IngredentsDTO {
     private String food_ingred_name;
     private String food_ingred_contnet;
     private Number food_ingred_price;
-    private Blob food_ingred_img;
+    private String food_ingred_img;
     private List<TrendRecipe_recommend> trendRecipeRecommendList;
     private List<Recipe_recommend> recipeRecommendList;
 }

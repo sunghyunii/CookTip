@@ -19,6 +19,7 @@ public class Recipe_recommend extends Timestamped {
 
     @Column(length = 15, nullable = false)
     private String recipe_title;
+    private String recipe_img;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -30,6 +31,8 @@ public class Recipe_recommend extends Timestamped {
     private List<Recipe_reply> recipeReplyList;
     @ManyToMany
     private List<Ingredients> ingredientsList;
+
+
 
     //레시피 이름 수정
     public void changeTitle(String title){

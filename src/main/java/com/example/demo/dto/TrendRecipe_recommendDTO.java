@@ -14,6 +14,7 @@ public class TrendRecipe_recommendDTO {
     private int trend_recipe_num;
     private String trend_recipe_category;
     private String trend_recipe_title;
+    private String trend_recipe_img;
     private User user;
     private int trend_recipe_readcount;
     private String trend_recipe_content;
