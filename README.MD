@@ -1,2 +1,1 @@
-# CookTip
-# CookTip
+내용
