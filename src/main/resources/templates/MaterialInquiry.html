@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/MaterialListLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -111,4 +113,6 @@ img {
 </table>
 </body>
 </body>
+    </th:block>
+</th:block>
 </html>

@@ -1,0 +1,59 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/MyPageLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+        <head>
+            <meta charset="UTF-8">
+            <title>UserInfo</title>
+            <link href="/css/UserInfo.css" rel="stylesheet">
+        </head>
+        <body>
+        <h1>회원정보보기</h1>
+        <table>
+            <tr>
+                <td>아이디</td>
+                 <td th:text="${userDTO.user_id}"></td>
+                <td th:text="1"></td>
+            </tr>
+            </tr>
+            <tr style="background-color:#FFB576">
+                <td>비밀번호</td>
+                 <td th:text="${userDTO.user_pw}"></td> --&gt;
+                <td th:text="2"></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                &lt;!&ndash;<td th:text="${userDTO.user_name}"></td>&ndash;&gt;
+                <td th:text="3"></td>
+            </tr>
+            <tr style="background-color:#FFB576">
+                <td>주소</td>
+                <td th:text="${userDTO.user_address}"></td>
+                <td th:text="4"></td>
+            </tr>
+
+            <tr>
+                <td>전화번호</td>
+                &lt;!&ndash;<td th:text="${userDTO.user_phone}"></td>&ndash
+                <td th:text="5"></td>
+            </tr>
+
+            <tr style="background-color:#FFB576">
+                <td>주민번호</td>
+                &lt;!&ndash;<td th:text="${userDTO.user_number}"></td>&ndash;&gt;
+                <td th:text="6"></td>
+
+            </tr>
+            <tr>
+                <td>이메일</td>
+
+                &lt;!&ndash;        <td th:text="${userDTO.user_email}"></td>&ndash;&gt;
+                <td th:text="7"></td>
+            </tr>
+        </table>
+        </body>
+    </th:block>
+</th:block>
+</html>
+-->

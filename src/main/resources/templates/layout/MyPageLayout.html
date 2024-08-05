@@ -1,181 +1,188 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:fragment="mainPageLayout">
-<head>
-    <meta charset="UTF-8">
-    <title>MainPageLayout</title>
-    <style>
-        body {
-           background-color: #FFB576;
-           margin: 0;
-           font-family: Arial, sans-serif;
-       }
-       .header {
-           width: 100%;
-           height: 100px;
-           margin: 30px;
-           display: flex;
-           align-items: center;
-           justify-content: space-between;
-       }
-       .logo {
-           width: 100px;
-           height: 100px;
-           margin-left: 30px;
-       }
-       .search-container {
-           flex-grow: 1;
-           display: flex;
-           justify-content: center;
-       }
-       .search-box {
-           display: flex;
-           align-items: center;
-       }
-       .search-txt {
-           width: 400px;
-           height: 50px;
-           font-size: 15px;
-           border: 5px solid #C6394D;
-       }
-       .search-btn {
-           width: 50px;
-           height: 50px;
-           font-size: 15px;
-           margin-left: 5px;
-       }
-       .buttons {
-           display: flex;
-           align-items: flex-start;
-           margin-right: 30px;
-       }
-       .myPageBtn, .loginBtn {
-           background-color: #C6394D;
-           color: white;
-           height: 50px;
-           margin-left: 5px;
-           margin-top:5px;
-       }
-       .container{
-       display: flex;
-       padding: 30px;
-       background-color: white;
-       }
-       .sidebar{
-        width: 200px;
-        margin-right: 35px;
-        margin-left: 30px;
-       }
-       .sidebar ul{
-        list-style-type: none;
-        padding: 0;
-        }
-        .sidebar ul li{
-            margin-bottom: 10px;
-        }
-        .sidebar ul li h3{
-            border: 1px solid orange;
-            border-radius: 10px;
-            background-color: #FFB576;
-            padding: 10px;
-        }
-        .sidebar ul li a{
-            text-decoration: none;
-            color: ##FFB576;
-            display:block;
-            padding: 10px;
-            transition:color 0.3s; <!--링크에 커서를 올렸을 때 글자 색이 빨간색으로 변하도록 설정-->
-        }
-        .sidebar ul li a:hover{
-            color: #C6394D;
-        }
-        .content-wrapper{
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .content{
-            width:100%;
-            flex-grow: 1;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            min-height: 500px;
-        }
-    </style>
-</head>
-<body>
-<div class="header">
-    <!--로고-->
-    <img src="/img/logo.png" class="logo" />
-    <!--검색창-->
-    <div class="search-container">
-        <form class="search-box">
-            <input class="search-txt" type="text" name="keyword" placeholder="검색어를 입력하세요">
-            <button class="search-btn" type="submit">검색</button>
-        </form>
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="UTF-8">
+        <title>MainPageLayout</title>
+
+        <style>
+            body {
+                  background-color: white;
+                  margin: 0;
+                  font-family: Arial, sans-serif;
+                      }
+            .header {
+                     width: 100%;
+                     height: 150px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: space-between;
+                     padding: 0 30px;
+                      }
+
+            .logo{
+                  width:110px;
+                  height: 110px;
+                  margin-right: 2px;
+                  margin-left: 50px;
+                }
+
+            .search-container {
+                         flex-grow: 1;
+                         display: flex;
+                         justify-content: center;
+                         align-items: center;
+                         margin: 0 30px;
+                      }
+            .search-box {
+                          display: flex;
+                          align-items: center;
+                      }
+            .search-txt {
+                          width: 400px;
+                          height: 50px;
+                          font-size: 15px;
+                          border: 5px solid #C6394D;
+                      }
+            .search-btn {
+                          width: 50px;
+                          height: 50px;
+                          font-size: 15px;
+                          margin-left: 5px;
+                      }
+            .buttons {
+                          display: flex;
+                          align-items: flex-start;
+                          margin-right: 30px;
+                      }
+            .myPageBtn, .loginBtn {
+                          background-color: #C6394D;
+                          color: white;
+                          height: 50px;
+                          margin-left: 5px;
+                          margin-top:5px;
+                      }
+            .container{
+                          display: flex;
+                          padding: 30px;
+                          background-color: white;
+                      }
+            .sidebar{
+                     width: 200px;
+                     margin-right: 35px;
+                     margin-left: 30px;
+                    }
+            .sidebar ul{
+                          list-style-type: none;
+                          padding: 0;
+                       }
+            .sidebar ul li{
+                          margin-bottom: 10px;
+                           }
+            .sidebar ul li h3{
+                           border: 1px solid orange;
+                           border-radius: 10px;
+                           background-color: #FFB576;
+                           padding: 10px;
+                               }
+            .sidebar ul li a{
+                           text-decoration: none;
+                           color: ##FFB576;
+                           display:block;
+                           padding: 10px;
+                           transition:color 0.3s; <!--링크에 커서를 올렸을 때 글자 색이 빨간색으로 변하도록 설정-->
+                               }
+            .sidebar ul li a:hover{
+                                   color: #C6394D;
+                               }
+            .content-wrapper{
+                             flex-grow: 1;
+                             display: flex;
+                             justify-content: center;
+                               }
+            .content{
+                     width:100%;
+                     flex-grow: 1;
+                     background-color: white;
+                     padding: 20px;
+                     border-radius: 10px;
+                     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                     min-height: 500px;
+                               }
+            .table{
+                border: 1px solid #FFB576;
+
+            }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <!--로고-->
+        <img class="logo" src="/img/logo.png" style="align-self: flex-start; margin-top:0px;"/>
+        <!--검색창-->
+        <div class="search-container">
+            <form class="search-box">
+                <input class="search-txt" name="keyword" placeholder="검색어를 입력하세요" type="text">
+                <button class="search-btn" type="submit">검색</button>
+            </form>
+        </div>
+
+        <!-- 마이페이지 및 로그인 버튼 -->
+        <div class="buttons">
+            <button class="myPageBtn" type="button">마이페이지</button>
+            <button class="loginBtn" type="button">로그인</button>
+        </div>
     </div>
 
-    <!-- 마이페이지 및 로그인 버튼 -->
-    <div class="buttons">
-        <button type="button" class="myPageBtn">마이페이지</button>
-        <button type="button" class="loginBtn">로그인</button>
-    </div>
-</div>
-</div>
+    <div class="container">
+        <div class="sidebar">
+            <!--네비게이션바-->
+            <ul>
+                <li><h3>마이페이지</h3></li>
+                <li><a href="UserModifyForm">회원정보보기</a></li>
+                <li><a href="UserCookInfo">회원정보수정</a></li>
+                <li><a href="UserCookModifyForm">회원쿡정보보기</a></li>
+                <li><a href="UserCookModifyForm">회원쿡정보수정</a></li>
+            </ul>
+        </div>
 
-<div class="container">
-    <div class="sidebar">
-        <!--네비게이션바-->
-        <ul>
-            <li><h3>마이페이지</h3></li>
-            <li><a href="UserModifyForm">회원정보보기</a></li>
-            <li><a href="UserCookInfo">회원정보수정</a></li>
-            <li><a href="UserCookModifyForm">회원쿡정보보기</a></li>
-            <li><a href="UserCookModifyForm">회원쿡정보수정</a></li>
-        </ul>
+        <!--콘텐츠 영역 -->
+        <div class="content-wrapper">
+            <th:block th:replace="${content}"></th:block>
+        </div>
     </div>
 
-<!--콘텐츠 영역 -->
-<div class="content-wrapper">
-    <div class = "content" th:replace="layout/UserInfo :: userInfo">
-        <!--여기에 다른 페이지의 콘텐츠 삽입 -->
-    </div>
-</div>
-</div>
-
-<script th:inline="javascript">
-    $(document).ready(function(){     //페이지가 로드되면 내부 코드 실행
-        $('.search-btn').click(function(e){
-            e.preventDefault();     //폼의 기본 제출 동작 막음
-            var searchQuery = ('#search-txt').val().trim(); // 입력된 검색어 가져오기, trim():공백 제거
-            if(searchQuery == " "){
-            alert("검색어를 입력하세요."); // 검색어가 없으면 경고창 뛰우기
-        }   else{
-                window.location.href="searchRecipeList.html?search="+encodeURIComponent(searchQuery);
-            //검색어와 함께 페이지 이동
-        }
-    });
-    });
-
-    $(document).ready(function(e){
-        $('.myPageBtn').click(function(e){     //내부 myPageBtn 클래스가 있는 버튼에 클릭 이벤트 핸들러 설정
-            var isLoggedIn = localStorage.getItem('loggendIn') === 'true';  //버튼 클릭 시 스토리지에서 로그인 상태 확인
-            if(isLoggedIn){
-                widow.location.href = 'UserInfo.html';
-            }else{
-                window.location.href = 'loginMain.html';
+    <script th:inline="javascript">
+        $(document).ready(function(){     //페이지가 로드되면 내부 코드 실행
+            $('.search-btn').click(function(e){
+                e.preventDefault();     //폼의 기본 제출 동작 막음
+                var searchQuery = $('.search-txt').val().trim(); // 입력된 검색어 가져오기, trim():공백 제거
+                if(searchQuery == ""){
+                alert("검색어를 입력하세요."); // 검색어가 없으면 경고창 뛰우기
+            }   else{
+                    window.location.href="searchRecipeList.html?search="+encodeURIComponent(searchQuery);
+                //검색어와 함께 페이지 이동
             }
         });
-    });
-
-    $(document).ready(function(e){
-        $('.loginBtn').click(function(e){
-            window.location.href="loginMain.html";
         });
-    });
-</script>
-</body>
+
+        $(document).ready(function(e){
+            $('.myPageBtn').click(function(e){     //내부 myPageBtn 클래스가 있는 버튼에 클릭 이벤트 핸들러 설정
+                var isLoggedIn = localStorage.getItem('loggedIn') === 'true';  //버튼 클릭 시 스토리지에서 로그인 상태 확인
+                if(isLoggedIn){
+                    window.location.href = 'UserInfo.html';
+                }else{
+                    window.location.href = 'loginMain.html';
+                }
+            });
+        });
+
+        $(document).ready(function(e){
+            $('.loginBtn').click(function(e){
+                window.location.href="loginMain.html";
+            });
+        });
+    </script>
+    </body>
 </th:block>
 </html>
