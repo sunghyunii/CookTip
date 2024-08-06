@@ -99,12 +99,14 @@
         }
         .content{
             width:100%;
-            flex-grow: 1;
+            max-width: 1200px; /* 최대 너비 제한 */
+            max-height: 700px;
+            min-height: 500px; /* 최소 높이 제한 */
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            min-height: 500px;
+
         }
         ul{
             list-style-type: none;

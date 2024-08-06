@@ -7,7 +7,7 @@
 
         <style>
             body {
-                  background-color: white;
+                  background-color: #FFB576;
                   margin: 0;
                   font-family: Arial, sans-serif;
                       }
@@ -62,7 +62,7 @@
                           margin-left: 5px;
                           margin-top:5px;
                       }
-            .container{
+            .sidebar-container{
                           display: flex;
                           padding: 30px;
                           background-color: white;
@@ -101,16 +101,15 @@
                              justify-content: center;
                                }
             .content{
-                     width:100%;
-                     flex-grow: 1;
-                     background-color: white;
-                     padding: 20px;
-                     border-radius: 10px;
-                     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                     min-height: 500px;
+                      width: 100%;
+                      max-width: 1200px; /* 최대 너비 제한 */
+                      max-height: 700px;
+                      min-height: 500px; /* 최소 높이 제한 */
+                      padding: 20px;
+                      background-color: white;
+                      border-radius: 10px;
+                      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                                }
-            .table{
-                border: 1px solid #FFB576;
 
             }
         </style>
@@ -134,7 +133,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="sidebar-container">
         <div class="sidebar">
             <!--네비게이션바-->
             <ul>
@@ -148,7 +147,9 @@
 
         <!--콘텐츠 영역 -->
         <div class="content-wrapper">
+            <div class="content">
             <th:block th:replace="${content}"></th:block>
+        </div>
         </div>
     </div>
 
