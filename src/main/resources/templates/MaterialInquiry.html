@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/MaterialListLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -48,19 +50,47 @@ button:active {
     font-size: 15px;
     border: 0;
     border-radius: 5px;
-    outline: 1.5px rgb(27, 76, 155) solid;
+    outline: 1.5px #FF6B83 solid;
     padding-left: 10px;
-    background-color: rgb(68, 136, 244);
+    background-color: #FF6B83;
 }
+    .search {
+  position: relative;
+  width: 300px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+img {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}
+
+
+
 </style>
 </head>
 <body>
+
 <table class="table">
-    <tr><td colspan="2"><h2>게시판</h2></td></tr>
+    <tr><td colspan="2"><h2>재료 상품</h2>
+    <div class="search">
+        <input type="text" placeholder="검색어 입력">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+    </div>
     <tr class="header">
-        <td class="num">번호</td>
-        <td class="title">제목</td>
-        <td>작성자</td>
+        <td class="images">사진</td>
+        <td class="title">식재료</td>
+        <td>가격</td>
         <td>작성날짜</td>
     </tr>
     <script>
@@ -69,7 +99,7 @@ button:active {
             document.write("<tr class='body'>");
             document.write("<td>" + i +"</td>");
             document.write("<td class='title'>제목입니다.</td>");
-            document.write("<td>작성자</td>");
+            document.write("<td>가격</td>");
       		document.write("<td>24-01-" + day-- + "</td>");
             document.write("</tr>");
         }
@@ -78,9 +108,11 @@ button:active {
 <br>
 <table>
     <tr>
-        <td><button onclick="location.href='write.html'">글쓰기</button></td>
+        <td><button onclick="#">가격등록</button></td>
     </tr>
 </table>
 </body>
 </body>
+    </th:block>
+</th:block>
 </html>

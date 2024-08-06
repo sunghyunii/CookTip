@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/MyPageLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+        <head>
+            <meta charset="UTF-8">
+            <title>UserInfo</title>
+            <style>
+                <style>
+                body {
+                    margin: 20px;
+                }
+
+                h1 {
+                    color: #FFB576;
+                    margin-bottom: 10px;
+                }
+
+                table {
+                    width: 80%;
+                    border-collapse: collapse;
+                    margin-top: 10px;
+                }
+
+                td {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    white-space: nowrap; /* 내용이 길어져도 셀 내부에서 줄바꿈 하지 않도록 */
+                }
+
+                tr td:first-child {
+                    background-color: #FFB576;
+                }
+
+                /* 첫 번째 열의 너비를 설정하고 나머지 공간을 두 번째 열이 차지하도록 */
+                tr td:first-child {
+                    width: 20%; /* 첫 번째 열의 고정 너비 설정 */
+                }
+                tr td:nth-child(2) {
+                    width: 80%; /* 두 번째 열의 너비 설정 */
+                }
+
+            </style>
+            </style>
+        </head>
+        <body>
+        <h1>회원정보보기</h1>
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td th:text="1"></td>
+            </tr>
+
+            <tr>
+                <td>비밀번호</td>
+                <td th:text="2"></td>
+            </tr>
+
+            <tr>
+                <td>이름</td>
+                <td th:text="3"></td>
+            </tr>
+
+            <tr>
+                <td>주소</td>
+                <td th:text="4"></td>
+            </tr>
+
+            <tr>
+                <td>전화번호</td>
+                <td th:text="5"></td>
+            </tr>
+
+            <tr>
+                <td>주민번호</td>
+                <td th:text="6"></td>
+
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td th:text="7"></td>
+            </tr>
+        </table>
+        </body>
+    </th:block>
+</th:block>
+</html>
