@@ -180,6 +180,27 @@
                     font-size: 1em;
                     margin-bottom: 20px;
                 }
+            .button {
+           background-color: #FF6B6B;
+           color: white;
+           border: none;
+           padding: 8px 11px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 13px;
+           margin: 4px 2px;
+           cursor: pointer;
+           border-radius: 4px;
+       }
+
+    .button i {
+           margin-right: 8px;
+       }
+
+       .button:hover {
+           background-color: #C6394D;
+       }
 
         </style>
     </head>
@@ -234,6 +255,9 @@
                             <p>요리순서</p>
                         </div>
                     </div>
+
+                    <button class="button">목록으로 돌아가기</button>
+
                 </div>
                 <div class="content-wrapper">
                     <th:block th:replace="${content}"></th:block>
@@ -242,7 +266,7 @@
         </div>
     </div>
 
-    </div>
+
 
     </body>
 </th:block>
