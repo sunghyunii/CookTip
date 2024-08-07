@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="~{/layout/CommunityListLayout :: setContent(~{this::content} )}">
+<th:block th:replace="~{/layout/recipeListLayout :: setContent(~{this::content} )}">
     <th:block th:fragment="content">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
     border-top: none;
 }
 .header {
+    background-color: #FFB576;
     text-align: center;
 }
 .table td, .table th {
@@ -35,8 +36,8 @@
     text-align: left;
 }
 button {
-    width: 100px;
-    height: 40px;
+    width: 70px;
+    height: 30px;
     font-size: 15px;
     border: 0;
     outline: 1.5px #C6394D solid;
@@ -45,20 +46,45 @@ button {
     background-color: #C6394D;
 }
 button:active {
-    width: 100px;
-    height: 40px;
+    width: 70px;
+    height: 30px;
     font-size: 15px;
     border: 0;
     border-radius: 5px;
-    outline: 1.5px rgb(27, 76, 155) solid;
+    outline: 1.5px #FF6B83 solid;
     padding-left: 10px;
-    background-color: rgb(68, 136, 244);
+    background-color: #FF6B83;
+}
+    .search {
+  position: relative;
+  width: 300px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+img {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
 }
 </style>
 </head>
 <body>
+
 <table class="table">
-    <tr><td colspan="2"><h2>게시판</h2></td></tr>
+    <tr><td colspan="2"><h2>게시판</h2>
+    <div class="search">
+        <input type="text" placeholder="검색어 입력">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+    </div>
     <tr class="header">
         <td class="num">번호</td>
         <td class="title">제목</td>
@@ -80,7 +106,7 @@ button:active {
 <br>
 <table>
     <tr>
-        <td><button onclick="location.href='write.html'">글쓰기</button></td>
+        <td><button onclick="location.href=#">글쓰기</button></td>
     </tr>
 </table>
 </body>

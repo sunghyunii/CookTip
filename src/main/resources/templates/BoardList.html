@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/CommunityListLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+    table {
+    margin: auto;
+    width: 700px;
+    border-radius: 5px;
+    border-collapse: collapse;
+    border-top: none;
+}
+.header {
+    text-align: center;
+}
+.table td, .table th {
+    border-bottom: 1px lightgray solid;
+    height: 30px;
+    font-size: 14px;
+}
+.num {
+    width: 50px;
+}
+.title {
+    width: 500px;
+}
+.body {
+    text-align: center;
+}
+.body .title {
+    text-align: left;
+}
+button {
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    border: 0;
+    outline: 1.5px #C6394D solid;
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: #C6394D;
+}
+button:active {
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 5px;
+    outline: 1.5px #FF6B83 solid;
+    padding-left: 10px;
+    background-color: #FF6B83;
+}
+</style>
+</head>
+<body>
+<table class="table">
+    <tr><td colspan="2"><h2>게시판</h2></td></tr>
+    <tr class="header">
+        <td class="num">번호</td>
+        <td class="title">제목</td>
+        <td>작성자</td>
+        <td>작성날짜</td>
+    </tr>
+    <script>
+        var i, day = 20;
+        for (i = 10; i > 0; i--) {
+            document.write("<tr class='body'>");
+            document.write("<td>" + i +"</td>");
+            document.write("<td class='title'>제목입니다.</td>");
+            document.write("<td>작성자</td>");
+      		document.write("<td>24-01-" + day-- + "</td>");
+            document.write("</tr>");
+        }
+    </script>
+</table>
+<br>
+<table>
+    <tr>
+        <td><button onclick="location.href=#">글쓰기</button></td>
+    </tr>
+</table>
+</body>
+</body>
+    </th:block>
+</th:block>
+</html>

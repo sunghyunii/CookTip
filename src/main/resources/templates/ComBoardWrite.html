@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+
+            .layout {
+       width: 500px;
+       margin: 0 auto;
+       margin-top: 40px;
+   }
+
+   .layout > input, textarea {
+       width: 100%;
+       box-sizing: border-box;
+       margin-top; 10px;
+
+   }
+
+   .layout > textarea{
+       width: 100%;
+       margin-top: 50px;
+       min-height: 300px;
+   }
+
+   body {
+           font-family: Arial, sans-serif;
+           line-height: 1.6;
+           margin: 0;
+           padding: 0;
+           background-color: #f4f4f4;
+       }
+
+       .container {
+           background: #fff;
+           padding: 20px;
+           border-radius: 8px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+       .container h2 {
+           margin-bottom: 20px;
+       }
+       .container label {
+           display: block;
+           margin-bottom: 10px;
+       }
+
+       .button {
+           background-color: #FF6B6B;
+           color: white;
+           border: none;
+           padding: 8px 11px;
+           text-align: center;
+           text-decoration: none;
+           display: inline-block;
+           font-size: 13px;
+           margin: 4px 2px;
+           cursor: pointer;
+           border-radius: 4px;
+       }
+
+    .button i {
+           margin-right: 8px;
+       }
+
+       .button:hover {
+           background-color: #C6394D;
+       }
+
+           body{
+               margin: 0;
+               font-family: Arial, sans-serif;
+           }
+           .header {
+              width: 100%;
+              height: 120px;
+              padding: 10 30px;
+              display: flex;
+              justify-content: space-between;
+              background-color: white;
+          }
+          .header-title{
+                flex-grow: 1;
+                text-align: center;
+                margin-top: 30px;
+                argin-letf: 20px;
+                font-size: 22px;
+                font-weight: bold;
+                color: indianred;
+                text-shadow: 1px 1px 1.2px midnightblue;
+          }
+          .logo{
+            width:110px;
+            height: 110px;
+            margin-right: 2px;
+            margin-left: 50px;
+          }
+          .logo img {
+              width: 100%;
+              height: 100%;
+          }
+          .search-container {
+              flex-grow: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 30px;
+              margin-letf: 20px;
+          }
+          .search-box {
+              display: flex;
+              align-items: center;
+          }
+          .search-txt {
+              width: 300px;
+              height: 40px;
+              font-size: 15px;
+              border: 5px solid #C6394D;
+          }
+          .search-btn {
+              width: 50px;
+              height: 40px;
+              font-size: 15px;
+              margin-left: 5px;
+              cusor: pointer;
+          }
+          .container{
+          display: flex;
+          padding: 30px;
+          background-color: white;
+          }
+          .sidebar{
+           width: 200px;
+           margin-right: 35px;
+           margin-left: 30px;
+          }
+          .sidebar ul{
+           list-style-type: none;
+           padding: 0;
+           }
+           .sidebar ul li{
+               margin-bottom: 10px;
+           }
+           .sidebar ul li h3{
+               border: 1px solid orange;
+               border-radius: 10px;
+               background-color: #FFB576;
+               padding: 10px;
+           }
+           .sidebar ul li a{
+               text-decoration: none;
+               color: ##FFB576;
+               display:block;
+               padding: 10px;
+               transition:color 0.3s; <!--링크에 커서를 올렸을 때 글자 색이 빨간색으로 변하도록 설정-->
+           }
+           .sidebar ul li a:hover{
+               color: #C6394D;
+           }
+           .content-wrapper{
+               flex-grow: 1;
+               display: flex;
+               justify-content: center;
+           }
+           .content{
+               width:100%;
+               max-width: 1200px; /* 최대 너비 제한 */
+               max-height: 700px;
+               min-height: 500px; /* 최소 높이 제한 */
+               background-color: white;
+               padding: 20px;
+               border-radius: 10px;
+               box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+               overflow: hidden;
+
+           }
+           ul{
+               list-style-type: none;
+               align-items: center;
+
+           }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="logo" style="align-self: flex-start; margin-top:0px;">
+            <img src="/img/logo.png"/>
+        </div>
+        <div class="header-title">
+            <h1>커뮤니티</h1>
+        </div>
+
+        <div class="search-container">
+            <form class="search-box">
+                <input class="search-txt" type="text" name="keyword" placeholder="검색어를 입력하세요">
+                <button class="search-btn" type="submit">검색</button>
+            </form>
+        </div>
+    </div>
+    <hr width = "100%" color = "#C6394D" size = "5">
+
+    <div class="container">
+        <div class="sidebar">
+            <!--네비게이션바-->
+            <ul>
+                <li><a href="#">추천 레시피</a></li>
+                <li><a href="#">트렌드 레시피</a></li>
+                <li><a href="#">재료상품</a></li>
+                <li><h3>커뮤니티</h3></li>
+            </ul>
+        </div>
+
+        <!--콘텐츠 영역 -->
+        <div class="content-wrapper">
+            <div class = "content" >
+                <!--여기에 다른 페이지의 콘텐츠 삽입 -->
+
+                <div class="header1">
+                    <h3 style= "font-size: 30px; font-weight: bold; color: indianred;
+    text-shadow: 1px 1px 1.2px midnightblue;">글 작성</h3>
+                </div>
+                <div class="container">
+
+                    <form action="/board/new" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="galleryName" id = "galleryName" value="comic" />
+                        <input type="hidden" name="galleryId" id = "galleryId" value= 1 />
+
+                        작성자 <input type="text" name="userName">
+                        비밀번호 <input type="password" name="password">
+                        <br>
+                        <br>
+                        이미지 파일들<input type="file" multiple="multiple" name="imageFiles" >
+                        <br>
+                        <br>
+                        <input type="text" name="title" placeholder="제목을 입력해주세요">
+                        <br>
+                        <br>
+                        <textarea name="content" placeholder="내용을 입력해주세요" ></textarea>
+                        <br>
+
+                        <button class="button">글 작성</button>
+                        <button class="button">목록으로 돌아가기</button>
+
+                    </form>
+                </div> <!-- /container -->
+                <div class="content-wrapper">
+                    <th:block th:replace="${content}"></th:block>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</th:block>
+</html>

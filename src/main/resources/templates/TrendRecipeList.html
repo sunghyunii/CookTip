@@ -81,19 +81,19 @@
                    background-color: white;
                }
                .header-title{
-                        flex-grow: 1;
-                        text-align: center;
-                        margin-top: 30px;
-                        margin-letf: 20px;
-                        font-size: 22px;
-                        font-weight: bold;
-                        color: indianred;
-                        text-shadow: 1px 1px 1.2px midnightblue;
+                    flex-grow: 1;
+                    text-align: center;
+                    margin-top: 30px;
+                    margin-letf: 20px;
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: indianred;
+                    text-shadow: 1px 1px 1.2px midnightblue;
                }
                .logo{
                  width:110px;
                  height: 110px;
-                 margin-right: 2px;
+
                  margin-left: 50px;
                }
                .logo img {
@@ -180,39 +180,39 @@
                     align-items: center;
 
                 }
-            .pagination {
-                display: flex;
-                justify-content: center;
-                list-style: none;
-                padding: 0;
-                margin: 20px 0;
-            }
-            .pagination li {
-                margin: 0 5px;
-            }
-            .pagination a {
-                text-decoration: none;
-                padding: 10px 15px;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                color: #333;
-                transition: background-color 0.3s, color 0.3s;
-            }
-            .pagination a:hover,
-            .pagination a:focus {
-                background-color: #007bff;
-                color: #fff;
-            }
-            .pagination .active a {
-                background-color: #007bff;
-                color: #fff;
-                border-color: #007bff;
-            }
-            .pagination .disabled a {
-                color: #ccc;
-                border-color: #ccc;
-                pointer-events: none;
-            }
+                 .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .pagination a:hover,
+        .pagination a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .pagination .active a {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        .pagination .disabled a {
+            color: #ccc;
+            border-color: #ccc;
+            pointer-events: none;
+        }
         </style>
 
     </head>
@@ -224,7 +224,7 @@
             <img src="/img/logo.png"/>
         </div>
         <div class="header-title">
-            <h1>재료 상품</h1>
+            <h1>트렌드 레시피</h1>
         </div>
 
         <div class="search-container">
@@ -235,32 +235,33 @@
         </div>
     </div>
     <hr width = "100%" color = "#C6394D" size = "5">
+
     <div class="container">
         <div class="sidebar">
             <!--네비게이션바-->
             <ul>
                 <li> <a href="#">추천 레시피</a></li>
-                <li><a href="#">트렌드 레시피</a></li>
-                <li><h3>재료상품</h3></li>
+                <li><h3>트렌드 레시피</h3></li>
+                <li><a href="#">재료상품</a></li>
                 <li><a href="#">커뮤니티</a></li>
             </ul>
         </div>
 
-
         <!--콘텐츠 영역 -->
         <div class="content-wrapper">
             <table class="table">
-                <tr><td colspan="2"><h2>재료상품 게시판</h2>
+                <tr><td colspan="2"><h2>트렌드 레시피 게시판</h2>
                     <div class="search">
                         <input type="text" placeholder="검색어 입력">
                         <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" class="searchlogo">
                     </div>
                 <tr class="header1">
-                <tr class="header1">
-                    <td class="images">사진</td>
-                    <td class="title">식재료</td>
-                    <td>가격</td>
+                    <td class="num">번호</td>
+                    <td class="title">제목</td>
+                    <td>작성자</td>
                     <td>작성날짜</td>
+                    <td>조회수</td>
+                    <td>추천수</td>
                 </tr>
                 <script>
                     var i, day = 20;
@@ -268,7 +269,7 @@
                         document.write("<tr class='body'>");
                         document.write("<td>" + i +"</td>");
                         document.write("<td class='title'>제목입니다.</td>");
-                        document.write("<td>가격</td>");
+                        document.write("<td>작성자</td>");
                           document.write("<td>24-01-" + day-- + "</td>");
                         document.write("</tr>");
                     }
@@ -281,6 +282,7 @@
 
         </div>
     </div>
+
 
     <ul id="pagination" class="pagination"></ul>
 
@@ -315,5 +317,4 @@
         createPagination(totalPages, currentPage);
     </script>
     </body>
-</th:block>
-</html>
+    </html>
