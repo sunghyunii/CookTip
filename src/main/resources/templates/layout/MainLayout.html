@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<!--  <th:block th:fragment="mainLayout">  -->
+
+    <th:block th:fragment="setContent(content)">
     <head>
     <meta charset="UTF-8">
     <title>Main Layout</title>
@@ -16,11 +17,12 @@
            align-items: center;
            justify-content: space-between;
        }
-       .logo {
-           width: 100px;
-           height: 100px;
-           margin-left: 30px;
-       }
+       .logo{
+             width:110px;
+             height: 110px;
+             margin-right: 2px;
+             margin-left: 50px;
+           }
        .search-container {
            flex-grow: 1;
            display: flex;
@@ -60,12 +62,39 @@
             justify-content: center;
         }
 
+        table{
+            border: 1px solid #FFB576;
+            width: 50%;  /*표 너비 */
+            margin: 0 auto; /*가운데 정렬 */
+            border-collapse: collapse; /*테이블의 테두리가 겹치지 않도록 설정*/
+        }
+        th, td{
+            padding: 10px;
+            text-align: left;
+            vertical-align: middle /*수직 가운데*/
+        }
+        tr{
+            border-bottom: 1px solid #FFB576; /*각 행 아래에 테두리를 추가*/
+        }
+        th{
+            border-right: 1px solid white;
+            width:30%;
+            color: white;
+
+        }
+        td{
+            width: 70%;
+        }
+        h1{
+        color: #FFB576;
+        text-align: center;
+        }
     </style>
 </head>
 <body>
 <div class="header">
     <!--로고-->
-    <img src="/img/logo.png" class="logo" />
+    <img class="logo" src="/img/logo.png" style="align-self: flex-start; margin-top:0px;" />
     <!--검색창-->
     <div class="search-container">
         <form class="search-box">
@@ -81,8 +110,7 @@
     </div>
 </div>
 <div class="content-wrapper">
-   <!--  <div class = "content" th:replace="layout/MainPage :: mainPage">
-        <!--여기에 다른 페이지의 콘텐츠 삽입 --> <!-- </div> -->
+   <th:block th:replace = "${content}"></th:block>
 </div>
 
 

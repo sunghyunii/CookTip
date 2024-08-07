@@ -1,14 +1,15 @@
-package com.example.demo.service;
+/*package com.example.demo.service;
 
 import com.example.demo.entity.Recipe_recommend;
 import com.fasterxml.jackson.databind.util.ArrayBuilders;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class RecipeServiceImpl extends RecipeService {
+public class RecipeServiceImpl implements RecipeService {
     //레시피 저장
     public Long regist(Recipe_recommend recipeRecommend){
 
@@ -37,4 +38,4 @@ public class RecipeServiceImpl extends RecipeService {
         //recipe_recommend 엔티티 대상으로 쿼리 실행 후 fetch 메서드를 통해 결과를 리스트로 반환
         return queryFactory.selectFrom(recipe_recommend).where(builder).fetch();
     }
-}
+}*/
