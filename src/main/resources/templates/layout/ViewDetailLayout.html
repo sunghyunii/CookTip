@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="UTF-8">
+        <title>재료 설명</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .header {
+                width: 100%;
+                height: 120px;
+                padding: 10px 30px;
+                display: flex;
+                justify-content: space-between;
+                background-color: white;
+            }
+            .header-title {
+                flex-grow: 1;
+                text-align: center;
+                margin-top: 30px;
+                margin-left: 20px;
+            }
+            .logo {
+                width: 110px;
+                height: 110px;
+                margin-right: 2px;
+                margin-left: 50px;
+            }
+            .logo img {
+                width: 100%;
+                height: 100%;
+            }
+            .container {
+                display: flex;
+                padding: 30px;
+                background-color: white;
+            }
+            .content-wrapper {
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+            .content {
+                width: 1350px;
+                height: 650px;
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                word-break: break-all;
+                position: relative;
+            }
+            ul {
+                list-style-type: none;
+                align-items: center;
+            }
+            .button-container {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+            }
+            button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1em;
+            }
+            button:hover {
+                background-color: #a52a3b;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="logo" style="align-self: flex-start; margin-top: 0px;">
+            <img src="/img/logo.png"/>
+        </div>
+    </div>
+    <hr width="100%" color="#C6394D" size="5">
+    <div class="container">
+        <!--콘텐츠 영역 -->
+        <div class="content-wrapper">
+            <div class="content">
+                <!--여기에 다른 페이지의 콘텐츠 삽입 -->
+                <th:block th:replace="${content}"></th:block>
+                <div class="button-container">
+                    <button type="button" onclick="window.location.href='목록 URL'">목록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</th:block>
+</html>

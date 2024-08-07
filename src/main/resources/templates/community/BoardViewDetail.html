@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+        <head>
+            <meta charset="UTF-8">
+            <title>게시글 보기</title>
+            <style>
+                .container {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+                .table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                }
+                .table, .table th, .table td {
+                    border: 1px solid #dddddd;
+                    text-align: center;
+                }
+                .table th, .table td {
+                    padding: 8px;
+                }
+                .attr {
+                    width: 20%;
+                    background-color: #f9f9f9;
+                    color: #C6394D;
+                     word-break: keep-all;
+                    white-space: nowrap;
+                }
+                .value{
+                    width: 80%;
+                }
+                .content-row {
+                    text-align: left;
+                    height: 200px;
+                }
+
+            </style>
+        </head>
+        <body>
+        <div class="container">
+            <div class="row">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td class="attr">제목</td>
+                        <td class="value" colspan="2">11111</td>
+                    </tr>
+                    <tr>
+                        <td class="attr">글쓴이</td>
+                        <td class="value" colspan="2">11111</td>
+                    </tr>
+                    <tr>
+                        <td class="attr">작성일</td>
+                        <td class="value" colspan="2">11111</td>
+                    </tr>
+                    <tr>
+                        <td class="content-row" ></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        </body>
+    </th:block>
+</th:block>
+</html>

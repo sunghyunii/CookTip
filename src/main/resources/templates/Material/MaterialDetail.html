@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+        <head>
+            <meta charset="UTF-8">
+            <title>재료 설명</title>
+            <!--<link href="/css/viewDetail.css" rel="stylesheet"> -->
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    box-sizing: border-box;
+                }
+
+                .container {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    max-width: 1300px;
+                    margin: 0 auto;
+                    margin-left: 60px;
+                    gap: 100px;
+                }
+
+                .left-section {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 50%;
+                    flex: 3;
+                }
+
+                .image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+
+                .recipe-name h3 {
+                    margin: 10px 0;
+                    color: #C6394D;
+                }
+
+                .right-section {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 8;
+                    max-width: 100%;
+                }
+
+                .frist-content, .second-content, .third-content {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 50%;
+                }
+
+                .frist-content h4, .second-content h4, .third-content h4 {
+                    color: #C6394D;
+                    margin: 10px 0;
+                }
+
+                .frist-content p, .second-content p, .third-content p {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    font-size: 1em;
+                    margin-bottom: 20px;
+                }
+
+            </style>
+        </head>
+        <body>
+        <div class="container">
+            <div class="left-section">
+                <div class="image">
+                    <img src="#" alt="재료 이미지"/>
+                </div>
+                <div class="recipe-name">
+                    <h3>재료 이름</h3>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="frist-content">
+                    <h4>가격</h4>
+                    <p>가격 정보가 들어갈 공간</p>
+                </div>
+                <div class="second-content">
+                    <h4>열량</h4>
+                    <p>열량 정보가 들어갈 공간</p>
+                </div>
+                <div class="third-content">
+                    <h4>보관법</h4>
+                    <p>보관법 정보가 들어갈 공간</p>
+                </div>
+            </div>
+        </div>
+
+        </body>
+    </th:block>
+</th:block>
+</html>

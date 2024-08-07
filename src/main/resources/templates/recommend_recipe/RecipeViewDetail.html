@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
+<head>
+    <meta charset="UTF-8">
+    <title>레시피 내용</title>
+    <link href="/css/viewDetail.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="left-section">
+        <div class="image" >
+            <img src="#" alt="레시피 이미지"/>
+        </div>
+        <div class="recipe-name">
+            <h3>레시피 이름</h3>
+        </div>
+    </div>
+    <div class="right-section">
+            <div class="frist-content">
+                <h4>사용재료</h4>
+                <p> 사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간
+                    사용재료가 입력될 공간 사용재료가 입력될 공간</p>
+            </div>
+
+            <div class="second-content">
+                <h4>요리순서</h4>
+                <p>요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간
+                    요리순서가 입력될 공간 요리순서가 입력될 공간</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+    </th:block>
+</th:block>
+</html>
