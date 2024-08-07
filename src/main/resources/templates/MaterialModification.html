@@ -79,7 +79,7 @@
 
     <div class="header1">
         <h3 style= "font-size: 30px; font-weight: bold; color: indianred;
-    text-shadow: 1px 1px 1.2px midnightblue;">글 수정</h3>
+    text-shadow: 1px 1px 1.2px midnightblue;">재료 가격 수정</h3>
     </div>
     <form action="/board/new" method="post" enctype="multipart/form-data">
         <input type="hidden" name="galleryName" id = "galleryName" value="comic" />
@@ -92,13 +92,13 @@
         이미지 파일들<input type="file" multiple="multiple" name="imageFiles" >
         <br>
         <br>
-        <input type="text" name="title" placeholder="제목을 입력해주세요">
+        <input type="text" name="title" placeholder="재료명을 입력해주세요">
         <br>
         <br>
-        <textarea name="content" placeholder="내용을 입력해주세요" ></textarea>
+        <input type="text" name="title" placeholder="가격을 입력해주세요">
         <br>
 
-        <button class="button">수정</button>
+        <button class="button">가격수정</button>
         <button class="button">목록으로 돌아가기</button>
 
     </form>
