@@ -180,6 +180,39 @@
                     align-items: center;
 
                 }
+                 .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .pagination li {
+            margin: 0 5px;
+        }
+        .pagination a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .pagination a:hover,
+        .pagination a:focus {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .pagination .active a {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+        .pagination .disabled a {
+            color: #ccc;
+            border-color: #ccc;
+            pointer-events: none;
+        }
         </style>
 
     </head>
@@ -215,36 +248,73 @@
         </div>
 
         <!--콘텐츠 영역 -->
-        <table class="table">
-            <tr><td colspan="2"><h2>게시판</h2></td></tr>
-            <tr class="header1">
-                <td class="num">번호</td>
-                <td class="title">제목</td>
-                <td>작성자</td>
-                <td>작성날짜</td>
-            </tr>
-            <script>
-                var i, day = 20;
-                for (i = 10; i > 0; i--) {
-                    document.write("<tr class='body'>");
-                    document.write("<td>" + i +"</td>");
-                    document.write("<td class='title'>제목입니다.</td>");
-                    document.write("<td>작성자</td>");
-                      document.write("<td>24-01-" + day-- + "</td>");
-                    document.write("</tr>");
-                }
-            </script>
-        </table>
-        <br>
-        <table>
-            <tr>
-                <td><button onclick="location.href=#">글쓰기</button></td>
-            </tr>
-        </table>
+        <div class="content-wrapper">
+            <table class="table">
+                <tr><td colspan="2"><h2>트렌드 레시피 게시판</h2>
+                    <div class="search">
+                        <input type="text" placeholder="검색어 입력">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" class="searchlogo">
+                    </div>
+                <tr class="header1">
+                    <td class="num">번호</td>
+                    <td class="title">제목</td>
+                    <td>작성자</td>
+                    <td>작성날짜</td>
+                    <td>조회수</td>
+                    <td>추천수</td>
+                </tr>
+                <script>
+                    var i, day = 20;
+                    for (i = 10; i > 0; i--) {
+                        document.write("<tr class='body'>");
+                        document.write("<td>" + i +"</td>");
+                        document.write("<td class='title'>제목입니다.</td>");
+                        document.write("<td>작성자</td>");
+                          document.write("<td>24-01-" + day-- + "</td>");
+                        document.write("</tr>");
+                    }
+                </script>
+            </table>
+            <br>
+            <table class="button1" style="position: absolute;">
+                <td><button onclick="#">글쓰기</button>
+            </table>
+
         </div>
     </div>
 
 
+    <ul id="pagination" class="pagination"></ul>
+
+    <script>
+        const totalPages = 10; // 총 페이지 수
+        const currentPage = 2; // 현재 페이지
+        const pagination = document.getElementById('pagination');
+
+        function createPagination(totalPages, currentPage) {
+            const fragment = document.createDocumentFragment();
+
+            const prevItem = document.createElement('li');
+            prevItem.className = currentPage === 1 ? 'disabled' : '';
+            prevItem.innerHTML = `<a href="#" ${currentPage === 1 ? 'aria-disabled="true"' : ''}>&laquo; Previous</a>`;
+            fragment.appendChild(prevItem);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageItem = document.createElement('li');
+                pageItem.className = i === currentPage ? 'active' : '';
+                pageItem.innerHTML = `<a href="#">${i}</a>`;
+                fragment.appendChild(pageItem);
+            }
+
+            const nextItem = document.createElement('li');
+            nextItem.className = currentPage === totalPages ? 'disabled' : '';
+            nextItem.innerHTML = `<a href="#" ${currentPage === totalPages ? 'aria-disabled="true"' : ''}>Next &raquo;</a>`;
+            fragment.appendChild(nextItem);
+
+            pagination.appendChild(fragment);
+        }
+
+        createPagination(totalPages, currentPage);
+    </script>
     </body>
-</th:block>
-</html>
+    </html>
