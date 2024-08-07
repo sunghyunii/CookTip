@@ -1,55 +1,249 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
-    <th:block th:fragment="content">
-        <head>
-            <meta charset="UTF-8">
-            <title>트렌드 레시피 내용</title>
-            <link href="/css/viewDetail.css" rel="stylesheet">
+<html lang="en">
+<th:block th:fragment="setContent(content)">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body{
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+            .header {
+               width: 100%;
+               height: 120px;
+               padding: 10 30px;
+               display: flex;
+               justify-content: space-between;
+               background-color: white;
+           }
+           .header-title{
+                 flex-grow: 1;
+                text-align: center;
+                margin-top: 30px;
+                argin-letf: 20px;
+                font-size: 22px;
+                font-weight: bold;
+                color: indianred;
+                text-shadow: 1px 1px 1.2px midnightblue;
+           }
+           .logo{
+             width:110px;
+             height: 110px;
+             margin-right: 2px;
+             margin-left: 50px;
+           }
+           .logo img {
+               width: 100%;
+               height: 100%;
+           }
+           .search-container {
+               flex-grow: 1;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               margin-top: 30px;
+               margin-letf: 20px;
+           }
+           .search-box {
+               display: flex;
+               align-items: center;
+           }
+           .search-txt {
+               width: 300px;
+               height: 40px;
+               font-size: 15px;
+               border: 5px solid #C6394D;
+           }
+           .search-btn {
+               width: 50px;
+               height: 40px;
+               font-size: 15px;
+               margin-left: 5px;
+               cusor: pointer;
+           }
+           .container{
+           display: flex;
+           padding: 30px;
+           background-color: white;
+           }
+           .sidebar{
+            width: 200px;
+            margin-right: 35px;
+            margin-left: 30px;
+           }
+           .sidebar ul{
+            list-style-type: none;
+            padding: 0;
+            }
+            .sidebar ul li{
+                margin-bottom: 10px;
+            }
+            .sidebar ul li h3{
+                border: 1px solid orange;
+                border-radius: 10px;
+                background-color: #FFB576;
+                padding: 10px;
+            }
+            .sidebar ul li a{
+                text-decoration: none;
+                color: ##FFB576;
+                display:block;
+                padding: 10px;
+                transition:color 0.3s; <!--링크에 커서를 올렸을 때 글자 색이 빨간색으로 변하도록 설정-->
+            }
+            .sidebar ul li a:hover{
+                color: #C6394D;
+            }
+            .content-wrapper{
+                flex-grow: 1;
+                display: flex;
+                justify-content: center;
+            }
+            .content{
+                width:100%;
+                max-width: 1200px; /* 최대 너비 제한 */
+                max-height: 700px;
+                min-height: 500px; /* 최소 높이 제한 */
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                overflow: hidden;
 
-        </head>
-        <body>
-        <div class="container">
-            <div class="left-section">
-                <div class="image" >
-                    <img src="#" alt="레시피 이미지"/>
-                </div>
-                <div class="recipe-name">
-                    <h3>레시피 이름</h3>
-                </div>
-            </div>
-            <div class="right-section">
-                <div class="frist-content">
-                    <h4>사용재료</h4>
-                    <p> 사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간
-                        사용재료가 입력될 공간 사용재료가 입력될 공간</p>
-                </div>
+            }
+            ul{
+                list-style-type: none;
+                align-items: center;
 
-                <div class="second-content">
-                    <h4>요리순서</h4>
-                    <p>요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간
-                        요리순서가 입력될 공간 요리순서가 입력될 공간</p>
+            }
+             .content-wrapper {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    box-sizing: border-box;
+                }
+
+                .container1 {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    max-width: 1300px;
+                    margin: 0 auto;
+                    margin-left: 60px;
+                    gap: 100px;
+                }
+
+                .left-section {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 50%;
+                    flex: 3;
+                }
+
+                .image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+
+                .recipe-name h3 {
+                    margin: 10px 0;
+                    color: #C6394D;
+                }
+
+                .right-section {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 8;
+                    max-width: 100%;
+                }
+
+                .frist-content, .second-content, .third-content {
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 50%;
+                }
+
+                .frist-content h4, .second-content h4, .third-content h4 {
+                    color: #C6394D;
+                    margin: 10px 0;
+                }
+
+                .frist-content p, .second-content p, .third-content p {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    font-size: 1em;
+                    margin-bottom: 20px;
+                }
+
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <div class="logo" style="align-self: flex-start; margin-top:0px;">
+            <img src="/img/logo.png"/>
+        </div>
+        <div class="header-title">
+            <h1>트렌드 레시피</h1>
+        </div>
+
+        <div class="search-container">
+            <form class="search-box">
+                <input class="search-txt" type="text" name="keyword" placeholder="검색어를 입력하세요">
+                <button class="search-btn" type="submit">검색</button>
+            </form>
+        </div>
+    </div>
+    <hr width = "100%" color = "#C6394D" size = "5">
+    <div class="container">
+        <div class="sidebar">
+            <!--네비게이션바-->
+            <ul>
+                <li> <a href="#">추천 레시피</a></li>
+                <li><h3>트렌드 레시피</h3></li>
+                <li><a href="#">재료상품</a></li>
+                <li><a href="#">커뮤니티</a></li>
+            </ul>
+        </div>
+
+        <!--콘텐츠 영역 -->
+        <div class="content-wrapper">
+            <div class = "content" >
+                <!--여기에 다른 페이지의 콘텐츠 삽입 -->
+                <div class="container1">
+                    <div class="left-section">
+                        <div class="image">
+                            <img src="#" alt="재료 이미지"/>
+                        </div>
+                        <div class="recipe-name">
+                            <h3>재료 이름</h3>
+                        </div>
+                    </div>
+                    <div class="right-section">
+                        <div class="frist-content">
+                            <h4>사용 재료</h4>
+                            <p>사용 재료</p>
+                        </div>
+                        <div class="second-content">
+                            <h4>요리 순서</h4>
+                            <p>요리순서</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-wrapper">
+                    <th:block th:replace="${content}"></th:block>
                 </div>
             </div>
         </div>
+    </div>
 
-        </div>
+    </div>
 
-        </body>
-    </th:block>
+    </body>
 </th:block>
 </html>
