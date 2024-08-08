@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .rightP {
+            float: right;
+        }
+
+        .p1 {
+            color: rgb(255, 107, 131);
+        }
+
+        .p2 {
+            color: rgb(255, 107, 131);
+
+        }
+
+        .textarea {
+            width: 400px;
+            height: 150px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+<table class="grid">
+    <tr>
+        <td>
+            <div class="grid">
+                <div class="left">
+                    <input type="file" id="image" height="170" width="250"><br>
+                    <span>
+                        <h1>[음식이름]</h1>
+                    </span>
+                    <p class="p1">
+                        난이도 :
+                        <br>조리 시간 :
+                    </p>
+                </div>
+                <div class="right">
+                    <p class="p2">
+                        사용 재료<br>
+                    <p class="textarea">
+                        사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    </p>
+                    </textarea>
+                    </p>
+                    <p class="p2">
+                        요리 순서<br>
+                    <p class="textarea">
+                        요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    </p>
+                    </textarea>
+                    </p>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr><td>
+        <div style="float: right;">
+
+            <input type="button" value="삭제" style="float:right" 
+            onclick="deleteData()">
+            <!-- 메소드 괄호 안에 삭제할 레시피 변수명 넣기 -->
+            
+            <input type="button" value="취소" style="float:right"
+            onclick="location.href='RecipeList.html'">
+            
+            <input type="button" value="수정" style="float:right" 
+            onclick="successModify()">
+
+        </div>
+    </td></tr>
+</table>
+<script>
+    function deleteData(dataId) {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+            fetch('/deleteData/' + dataId, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Delete success:', data); 
+                alert('삭제되었습니다.');
+               
+            })
+            .catch(error => {
+                console.error('Error deleting data:', error);
+                alert('삭제 중 오류가 발생했습니다.');
+            });
+        }
+    }
+    function successModify(){
+        
+    }
+</script>
+</body>
+
+</html>

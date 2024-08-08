@@ -59,9 +59,9 @@
                         사용 재료<br>
                     <p class="textarea">
                         사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
                     </p>
                     </textarea>
                     </p>
@@ -69,9 +69,9 @@
                         요리 순서<br>
                     <p class="textarea">
                         요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
                     </p>
                     </textarea>
                     </p>
@@ -81,10 +81,47 @@
     </tr>
     <tr><td>
         <div style="float: right;">
-            <input type="button" value="목록" style="float:right" onclick="location.href='RecipeList.html'">
+            <input type="button" id="deleteData" value="삭제" style="float:right"
+                   onclick="deleteData()">
+
+            <input type="button" value="목록" style="float:right"
+                   onclick="location.href='RecipeList.html'">
+
+            <input type="button" value="수정" style="float:right"
+                   onclick="location.href='RecipeViewModify.html'">
         </div>
     </td></tr>
 </table>
+<script>
+    function deleteData() {
+        // 여기에서 삭제할 데이터의 ID나 필요한 정보를 설정
+        var dataId = 1; // 예시로 데이터 ID를 설정
+
+        // 서버에 DELETE 요청 전송
+        fetch('/deleteData/' + dataId, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+                // 필요에 따라 추가적인 헤더를 설정
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // JSON 형식의 응답을 처리
+        })
+        .then(data => {
+            console.log('Delete success:', data); // 삭제 성공 시 로그를 출력
+            alert('삭제되었습니다.');
+            // 삭제 후 필요한 추가 작업을 수행 (예: 페이지 리로드 등)
+        })
+        .catch(error => {
+            console.error('Error deleting data:', error);
+            alert('삭제 중 오류가 발생했습니다.');
+        });
+    }
+</script>
 </body>
 
 </html>
