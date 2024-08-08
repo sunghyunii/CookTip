@@ -1,55 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
-    <th:block th:fragment="content">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>레시피 내용</title>
-    <link href="/css/viewDetail.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .left {
+            float: left;
+        }
+
+        .rightP {
+            float: right;
+        }
+
+        .p1 {
+            color: rgb(255, 107, 131);
+        }
+
+        .p2 {
+            color: rgb(255, 107, 131);
+
+        }
+
+        .textarea {
+            width: 400px;
+            height: 150px;
+
+        }
+
+    </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="left-section">
-        <div class="image" >
-            <img src="#" alt="레시피 이미지"/>
-        </div>
-        <div class="recipe-name">
-            <h3>레시피 이름</h3>
-        </div>
-    </div>
-    <div class="right-section">
-            <div class="frist-content">
-                <h4>사용재료</h4>
-                <p> 사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간
-                    사용재료가 입력될 공간 사용재료가 입력될 공간</p>
+<table class="grid">
+    <tr>
+        <td>
+            <div class="grid">
+                <div class="left"><!--이미지 수정 필요-->
+                    <img src="img/image2.jpg" alt="imageNotFound" height="170" width="250"><br>
+                    <span>
+                        <h1>[음식이름]</h1>
+                    </span>
+                    <p class="p1">
+                        난이도 :
+                        <br>조리 시간 :
+                    </p>
+                </div>
+                <div class="right">
+                    <p class="p2">
+                        사용 재료<br>
+                    <p class="textarea">
+                        사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    사용재료 정보를 출력할 공간
+                    </p>
+                    </textarea>
+                    </p>
+                    <p class="p2">
+                        요리 순서<br>
+                    <p class="textarea">
+                        요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    요리 순서 정보를 출력할 공간
+                    </p>
+                    </textarea>
+                    </p>
+                </div>
             </div>
-
-            <div class="second-content">
-                <h4>요리순서</h4>
-                <p>요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간
-                    요리순서가 입력될 공간 요리순서가 입력될 공간</p>
-            </div>
+        </td>
+    </tr>
+    <tr><td>
+        <div style="float: right;">
+            <input type="button" value="목록" style="float:right" onclick="location.href='RecipeList.html'">
         </div>
-    </div>
-
-</div>
-
+    </td></tr>
+</table>
 </body>
-    </th:block>
-</th:block>
+
 </html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .leftList{
+            width: 200px;
+            height: 500px;
+            margin-left: 5%;
+            text-align: center;
+            font-size: 20px;
+            border: 5px solid pink;
+         }
+        .rightList{
+            width: 900px;
+            height: 500px;
+            margin-right: 5%;
+            font-size: 18px;
+        }
+        .grid{
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+        span{
+            color: rgb(35, 100, 126);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    상단 요소 삽입부분
+</div>
+<div class="grid">
+    <table class="leftList">
+        <tr>
+            <td><!-- 링크 고쳐넣기 -->
+                <a href="https://www.naver.com/">추천 레시피</a>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="">
+                <a href="https://www.naver.com/">트렌드 레시피</a>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="">
+                <a href="https://www.naver.com/">재료 상품</a>
+            </td>
+        </tr>
+        <tr>
+            <td onclick="">
+                <a href="https://www.naver.com/">커뮤니티</a>
+            </td>
+        </tr>
+    </table>
+    <table class="rightList">
+        <tr>
+            <td> <!-- 이미지바꾸기, 음식 정보 및 이미지 데이터베이스 연결하기 -->
+                <img id="image1" src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 :
+                        <br>시간 :
+                    </span>
+            </td>
+            <td>
+                <img id="image2"  src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 :
+                        <br>시간 :
+                    </span>
+            </td>
+            <td>
+                <img id="image3" src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 :
+                        <br>시간 :
+                    </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img id="image4" src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 :
+                        <br>시간 :
+                    </span>
+            </td>
+            <td>
+                <img id="image5" src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 :
+                        <br>시간 :
+                    </span>
+            </td>
+            <td>
+                <img id="image6" src=""
+                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
+                음식1
+                <br>
+                <span>
+                        난이도 : 
+                        <br>시간 : 
+                    </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="등록" onclick="location.href='RecipeRegist.html'">
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+    // 클라이언트 사이드에서 이미지 요청 예시
+    var imageId = 1; // 예시로 이미지 ID를 설정
+    var imageUrl = "/images/" + imageId; // 이미지를 요청할 URL
+
+    // 이미지 요청 및 표시
+    fetch(imageUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob(); // 이미지 데이터를 Blob 형식으로 변환
+        })
+        .then(blob => {
+            var objectURL = URL.createObjectURL(blob); // Blob URL 생성
+            document.getElementById("imageDisplay").src = objectURL; // 이미지 표시
+        })
+        .catch(error => {
+            console.error('Error fetching image:', error);
+        });
+</script>
+</body>
+</html>
