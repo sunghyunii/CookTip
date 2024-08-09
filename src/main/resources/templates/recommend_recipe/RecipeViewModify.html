@@ -59,9 +59,9 @@
                         사용 재료<br>
                     <p class="textarea">
                         사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
-                    사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
+                        사용재료 정보를 출력할 공간
                     </p>
                     </textarea>
                     </p>
@@ -69,9 +69,9 @@
                         요리 순서<br>
                     <p class="textarea">
                         요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
-                    요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
+                        요리 순서 정보를 출력할 공간
                     </p>
                     </textarea>
                     </p>
@@ -81,48 +81,41 @@
     </tr>
     <tr><td>
         <div style="float: right;">
-
-            <input type="button" value="삭제" style="float:right" 
-            onclick="deleteData()">
-            <!-- 메소드 괄호 안에 삭제할 레시피 변수명 넣기 -->
-            
             <input type="button" value="취소" style="float:right"
-            onclick="location.href='RecipeList.html'">
-            
-            <input type="button" value="수정" style="float:right" 
-            onclick="successModify()">
+                   onclick="location.href='RecipeList.html'">
+
+            <input type="button" value="수정" style="float:right"
+                   onclick="successModify()">
 
         </div>
     </td></tr>
 </table>
 <script>
-    function deleteData(dataId) {
-        if (confirm("정말로 삭제하시겠습니까?")) {
-            fetch('/deleteData/' + dataId, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
+    function successModify(dataId){
+        if(confirm("수정하시겠습니까?")){
+            fetch('/modifyRecipe/' + modifyData, {
+                method: 'MODIFY',
+                headers{
+                    'Content-Type' : 'application/json'
                 }
             })
-            .then(response => {
+            ,then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
-                console.log('Delete success:', data); 
-                alert('삭제되었습니다.');
-               
+                console.log('Delete success:', data);
+                alert('수정되었습니다.');
+
             })
             .catch(error => {
                 console.error('Error deleting data:', error);
-                alert('삭제 중 오류가 발생했습니다.');
+                alert('수정 중 오류가 발생했습니다.');
             });
         }
-    }
-    function successModify(){
-        
+
     }
 </script>
 </body>
