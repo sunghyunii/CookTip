@@ -37,8 +37,18 @@
         }
 
     </style>
-</head>
+    <script>
+        var modifySuccess;
 
+        if(modifySuccess){
+            console.log('Delete success:', data);
+            response.sendRedirect("ModifySuccess.html");
+        } else {
+            console.error('Error deleting data:', error);
+            response.sendRedirect("ModifyFailed.html");
+        }
+    </script>
+</head>
 <body>
 <table class="grid">
     <tr>
@@ -86,38 +96,11 @@
 
             <input type="button" value="수정" style="float:right"
                    onclick="successModify()">
-
         </div>
-    </td></tr>
+    </td>
+    </tr>
+    <a href="" target="_blank"></a>
 </table>
-<script>
-    function successModify(dataId){
-        if(confirm("수정하시겠습니까?")){
-            fetch('/modifyRecipe/' + modifyData, {
-                method: 'MODIFY',
-                headers{
-                    'Content-Type' : 'application/json'
-                }
-            })
-            ,then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Delete success:', data);
-                alert('수정되었습니다.');
-
-            })
-            .catch(error => {
-                console.error('Error deleting data:', error);
-                alert('수정 중 오류가 발생했습니다.');
-            });
-        }
-
-    }
-</script>
 </body>
 
 </html>
