@@ -61,72 +61,98 @@
         </head>
         <body>
         <h1>회원정보수정</h1>
-        <form id = "userForm">
-        <table>
-            <tr>
-                <td>아이디</td>
-                <td th:text="1"><!--${user.user_id}--></td>
-            </tr>
+        <form action = "user/userModifyForm" method="post">
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td name="user_id" th:value="${dto.user_id}" readonly></td>
+                </tr>
 
-            <tr>
-                <td>비밀번호</td>
-                <td th:text="2"><!--${user.user_pw}--></td>
-            </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td name="user_pw" th:value="${dto.user_pw}" readonly></td>
+                </tr>
 
-            <tr>
-                <td>이름</td>
-                <td th:text="3">
-                    <input type = "text" name="name" size="10" value="" required/>
-                </td>
-            </tr>
+                <tr>
+                    <td>이름</td>
+                    <td th:text="3">
+                        <input type = "text" name="user_name" size="10" th:value="${dto.user_name}" required/>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>주소</td>
-                <td th:text="4">
-                <input type = "text" name="address" size="10" value="" required/>
-                </td>
-            </tr>
+                <tr>
+                    <td>주소</td>
+                    <td th:text="4">
+                        <input type = "text" name="user_address" size="10" th:value="${dto.user_address}" required/>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>전화번호</td>
-                <td th:text="5">
-                    <input type = "tel" name="tel" size="10" value="" required/>
-                </td>
-            </tr>
+                <tr>
+                    <td>전화번호</td>
+                    <td th:text="5">
+                        <input type = "tel" name="user_tel" size="10" th:value="${dto.user_tel}" required/>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>주민번호</td>
-                <td th:text="6">
-                    <input type = "text" name="num" size="15" value="" required/>
-                </td>
+                <tr>
+                    <td>주민번호</td>
+                    <td th:text="6">
+                        <input type = "text" name="user_num" size="15" th:value="${dto.user_number}" required/>
+                    </td>
 
-            </tr>
-            <tr>
-                <td>이메일</td>
-                <td th:text="7">
-                    <input type = "email" name="email" size="10" value="" required/>
-                </td>
-            </tr>
-        </table>
-        <div class="buttons">
-            <button type="submit" value="수정">수정</button>
-            <button type="reset" value="취소">취소</button>
-        </div>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td th:text="7">
+                        <input type = "email" name="user_email" size="10" th:value="${dto.user_email}" required/>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <button type="button" class="modifyBtn">수정</button>
+                <button type="button" class="cancelBtn">취소</button>
+            </div>
         </form>
 
         <script>
-            document.getElementById('userForm').addEventListener('submit', function(event) {
+            <!--document.getElementById('userForm').addEventListener('submit', function(event) {
                 const name = document.querySelector('input[name="name"]').value.trim();
                 const address = document.querySelector('input[name="address"]').value.trim();
                 const tel = document.querySelector('input[name="tel"]').value.trim();
                 const num = document.querySelector('input[name="num"]').value.trim();
                 const email = document.querySelector('input[name="email"]').value.trim();
-
+-
                 if (!name || !address || !tel || !num || !email) {
                     event.preventDefault(); // 폼 제출 방지
                     alert("모든 필드를 입력해야 합니다."); // 경고창 표시
                 }
+            });-->
+            var actionForm = $("form"); //form 태그 객체
+            $(".modifyBtn").click(function() {
+
+                if(!confirm("수정하시겠습니까?")){
+                    return ;
+                }
+
+                actionForm
+                    .attr("action", "/user/UserModifyForm")
+                    .attr("method","post")
+                    .submit();
             });
+
+             $(".cancelBtn").click(function() {
+
+                actionForm.empty(); //form 태그의 모든 내용을 지우고
+
+                actionForm
+                    .actionForm
+                    .attr("action", "/user/UserModifyForm")
+                    .attr("method","get");
+
+               actionForm.submit();
+            })
+
+
         </script>
         </body>
     </th:block>

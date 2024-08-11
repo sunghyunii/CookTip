@@ -48,37 +48,37 @@
         <table>
             <tr>
                 <td>아이디</td>
-                <td th:text="1"></td>
+                <td name="user_id" th:value="${userDTO.user_id}" readonly></td>
             </tr>
 
             <tr>
                 <td>비밀번호</td>
-                <td th:text="2"></td>
+                <td name="user_pw" th:value="${userDTO.user_pw}" readonly></td>
             </tr>
 
             <tr>
                 <td>이름</td>
-                <td th:text="3"></td>
+                <td name="user_name" th:value="${userDTO.user_name}" readonly></td>
             </tr>
 
             <tr>
                 <td>주소</td>
-                <td th:text="4"></td>
+                <td name="user_address" th:value="${userDTO.user_address}" readonly></td>
             </tr>
 
             <tr>
                 <td>전화번호</td>
-                <td th:text="5"></td>
+                <td name="user_tel" th:value="${userDTO.user_tel}" readonly></td>
             </tr>
 
             <tr>
                 <td>주민번호</td>
-                <td th:text="6"></td>
+                <td name="user_number" th:value="${userDTO.user_number}" readonly></td>
 
             </tr>
             <tr>
                 <td>이메일</td>
-                <td th:text="7"></td>
+                <td name="user_email" th:value="${userDTO.user_email}" readonly></td>
             </tr>
         </table>
         </body>
