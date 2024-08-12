@@ -55,51 +55,53 @@
             </script>
         </head>
         <body>
-        <table class="grid">
-            <tr>
-                <td>
-                    <div class="grid">
-                        <div class="left">
-                            <input type="file" id="image" height="170" width="250" th:value="${dto.recipe_img}"><br>
-                            <span>
+        <form th:action="@{/recommend_recipe/RecipeViewModify}" method="post">
+            <table class="grid">
+                <tr>
+                    <td>
+                        <div class="grid">
+                            <div class="left">
+                                <input type="file" id="image" height="170" width="250" th:value="${dto.recipe_img}"><br>
+                                <span>
                         <h1><input th:value="${dto.recipe_name}"></h1>
                     </span>
-                            <p class="p1">
-                                난이도 :<input th:value="${dto.recipe_level}">
-                                <br>조리 시간 :<input th:value="${dto.recipe_time}">
-                            </p>
+                                <p class="p1">
+                                    난이도 :<input th:value="${dto.recipe_level}">
+                                    <br>조리 시간 :<input th:value="${dto.recipe_time}">
+                                </p>
+                            </div>
+                            <div class="right">
+                                <p class="p2">
+                                    사용 재료<br>
+                                <p class="textarea">
+                                    <input th:value="">
+                                </p>
+                                </textarea>
+                                </p>
+                                <p class="p2">
+                                    요리 순서<br>
+                                <p class="textarea">
+                                    <input th:value="${dto.recipe_content}">
+                                </p>
+                                </textarea>
+                                </p>
+                            </div>
                         </div>
-                        <div class="right">
-                            <p class="p2">
-                                사용 재료<br>
-                            <p class="textarea">
-                                <input th:value="">
-                            </p>
-                            </textarea>
-                            </p>
-                            <p class="p2">
-                                요리 순서<br>
-                            <p class="textarea">
-                                <input th:value="${dto.recipe_content}">
-                            </p>
-                            </textarea>
-                            </p>
-                        </div>
+                    </td>
+                </tr>
+                <tr><td>
+                    <div style="float: right;">
+                        <input type="button" value="취소" style="float:right"
+                               onclick="location.href='RecipeList.html'">
+
+                        <input type="submit" value="수정" style="float:right"
+                               onclick="successModify()">
                     </div>
                 </td>
-            </tr>
-            <tr><td>
-                <div style="float: right;">
-                    <input type="button" value="취소" style="float:right"
-                           onclick="location.href='RecipeList.html'">
-
-                    <input type="button" value="수정" style="float:right"
-                           onclick="successModify()">
-                </div>
-            </td>
-            </tr>
-            <a href="" target="_blank"></a>
-        </table>
+                </tr>
+                <a href="" target="_blank"></a>
+            </table>
+        </form>
         </body>
     </th:block>
 </th:block>
