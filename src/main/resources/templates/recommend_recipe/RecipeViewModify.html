@@ -1,106 +1,109 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .grid {
-            display: flex;
-            gap: 50px;
-            justify-content: center;
-            align-items: center;
-        }
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <style>
+                .grid {
+                    display: flex;
+                    gap: 50px;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-        .left {
-            float: left;
-        }
+                .left {
+                    float: left;
+                }
 
-        .rightP {
-            float: right;
-        }
+                .rightP {
+                    float: right;
+                }
 
-        .p1 {
-            color: rgb(255, 107, 131);
-        }
+                .p1 {
+                    color: rgb(255, 107, 131);
+                }
 
-        .p2 {
-            color: rgb(255, 107, 131);
+                .p2 {
+                    color: rgb(255, 107, 131);
 
-        }
+                }
 
-        .textarea {
-            width: 400px;
-            height: 150px;
+                .textarea {
+                    width: 400px;
+                    height: 150px;
 
-        }
+                }
+                input{
+                      border-width: 0;
+                }
 
-    </style>
-    <script>
-        var modifySuccess;
+            </style>
+            <script>
+                var modifySuccess;
 
-        if(modifySuccess){
-            console.log('Delete success:', data);
-            response.sendRedirect("ModifySuccess.html");
-        } else {
-            console.error('Error deleting data:', error);
-            response.sendRedirect("ModifyFailed.html");
-        }
-    </script>
-</head>
-<body>
-<table class="grid">
-    <tr>
-        <td>
-            <div class="grid">
-                <div class="left">
-                    <input type="file" id="image" height="170" width="250"><br>
-                    <span>
-                        <h1>[음식이름]</h1>
+                if(modifySuccess){
+                    console.log('Delete success:', data);
+                    response.sendRedirect("ModifySuccess.html");
+                } else {
+                    console.error('Error deleting data:', error);
+                    response.sendRedirect("ModifyFailed.html");
+                }
+            </script>
+        </head>
+        <body>
+        <form th:action="@{/recommend_recipe/RecipeViewModify}" method="post">
+            <table class="grid">
+                <tr>
+                    <td>
+                        <div class="grid">
+                            <div class="left">
+                                <input type="file" id="image" height="170" width="250" th:value="${dto.recipe_img}"><br>
+                                <span>
+                        <h1><input th:value="${dto.recipe_name}"></h1>
                     </span>
-                    <p class="p1">
-                        난이도 :
-                        <br>조리 시간 :
-                    </p>
-                </div>
-                <div class="right">
-                    <p class="p2">
-                        사용 재료<br>
-                    <p class="textarea">
-                        사용재료 정보를 출력할 공간
-                        사용재료 정보를 출력할 공간
-                        사용재료 정보를 출력할 공간
-                        사용재료 정보를 출력할 공간
-                    </p>
-                    </textarea>
-                    </p>
-                    <p class="p2">
-                        요리 순서<br>
-                    <p class="textarea">
-                        요리 순서 정보를 출력할 공간
-                        요리 순서 정보를 출력할 공간
-                        요리 순서 정보를 출력할 공간
-                        요리 순서 정보를 출력할 공간
-                    </p>
-                    </textarea>
-                    </p>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr><td>
-        <div style="float: right;">
-            <input type="button" value="취소" style="float:right"
-                   onclick="location.href='RecipeList.html'">
+                                <p class="p1">
+                                    난이도 :<input th:value="${dto.recipe_level}">
+                                    <br>조리 시간 :<input th:value="${dto.recipe_time}">
+                                </p>
+                            </div>
+                            <div class="right">
+                                <p class="p2">
+                                    사용 재료<br>
+                                <p class="textarea">
+                                    <input th:value="">
+                                </p>
+                                </textarea>
+                                </p>
+                                <p class="p2">
+                                    요리 순서<br>
+                                <p class="textarea">
+                                    <input th:value="${dto.recipe_content}">
+                                </p>
+                                </textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr><td>
+                    <div style="float: right;">
+                        <input type="button" value="취소" style="float:right"
+                               onclick="location.href='RecipeList.html'">
 
-            <input type="button" value="수정" style="float:right"
-                   onclick="successModify()">
-        </div>
-    </td>
-    </tr>
-    <a href="" target="_blank"></a>
-</table>
-</body>
+                        <input type="submit" value="수정" style="float:right"
+                               onclick="successModify()">
+                    </div>
+                </td>
+                </tr>
+                <a href="" target="_blank"></a>
+            </table>
+        </form>
+        </body>
+    </th:block>
+</th:block>
 
 </html>
