@@ -64,13 +64,13 @@
                             <div class="left">
                                 <input type="file" height="170" width="250"><br><br>
                                 <span>
-                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none; font-size: 20px; font-weight: 800;" name="recipe_title" placeholder="레시피 제목을 입력하세요">
+                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none; font-size: 20px; font-weight: 800;" name="recipe_title" th:value="${dto.recipe_title}" placeholder="레시피 제목을 입력하세요">
                         </span>
                                 <p class="p1">
                                     난이도 :
-                                    <input type="text" id="difficulty" class="inputLeft" name="recipe_level" placeholder="요리 난이도를 입력하세요">
+                                    <input type="text" id="difficulty" class="inputLeft" name="recipe_level" th:value="${dto.recipe_level}" placeholder="요리 난이도를 입력하세요">
                                     <br>조리 시간 :
-                                    <input type="text" id="cookingTime" class="inputLeft" name="recipe_time" placeholder="조리 시간을 입력하세요">
+                                    <input type="text" id="cookingTime" class="inputLeft" name="recipe_time" th:value="${dto.recipe_time}" placeholder="조리 시간을 입력하세요">
                                 </p>
                             </div>
                             <div class="rightP">
@@ -80,10 +80,11 @@
                                 </p>
                                 <p class="p2">
                                     요리 순서<br><br>
-                                    <textarea id="cookingSteps" class="inputRight" name="recipe_content" placeholder="요리 순서를 입력하세요"></textarea>
+                                    <textarea id="cookingSteps" class="inputRight" th:value="${dto.recipe_content}" name="recipe_content" placeholder="요리 순서를 입력하세요"></textarea>
                                 </p>
                             </div>
                         </div>
+
         </td>
         </tr>
         <tr>
