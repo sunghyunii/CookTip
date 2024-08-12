@@ -1,116 +1,120 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/ViewDetailLayout :: setContent(~{this::content} )}">
+    <th:block th:fragment="content">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .grid {
-            display: flex;
-            gap: 50px;
-            justify-content: center;
-            align-items: center;
-        }
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <style>
+                .grid {
+                    display: flex;
+                    gap: 50px;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-        .left {
-            float: left;
-        }
+                .left {
+                    float: left;
+                }
 
-        .rightP {
-            float: right;
-        }
+                .rightP {
+                    float: right;
+                }
 
-        .p1 {
-            color: rgb(255, 107, 131);
-        }
+                .p1 {
+                    color: rgb(255, 107, 131);
+                }
 
-        .p2 {
-            color: rgb(255, 107, 131);
+                .p2 {
+                    color: rgb(255, 107, 131);
 
-        }
+                }
 
-        textarea {
-            width: 400px;
-            height: 150px;
-        }
+                textarea {
+                    width: 400px;
+                    height: 150px;
+                }
 
-        .inputLeft {
-            height: 30px;
-            width: 200px;
-            border: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
+                .inputLeft {
+                    height: 30px;
+                    width: 200px;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
 
-        .inputRight {
-            height: 150px;
-            width: 400px;
-            border: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-    </style>
-</head>
+                .inputRight {
+                    height: 150px;
+                    width: 400px;
+                    border: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            </style>
+        </head>
 
-<body>
-<table class="grid">
-    <tr>
-        <td>
-            <div class="grid">
-                <div class="left">
-                    <input type="file" height="170" width="250"><br><br>
-                    <span>
-                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none; font-size: 20px; font-weight: 800;" placeholder="레시피 제목을 입력하세요">
+        <body>
+        <table class="grid">
+            <tr>
+                <td>
+                    <div class="grid">
+                        <div class="left">
+                            <input type="file" height="170" width="250"><br><br>
+                            <span>
+                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none; font-size: 20px; font-weight: 800;" name="recipe_title" placeholder="레시피 제목을 입력하세요">
                         </span>
-                    <p class="p1">
-                        난이도 :
-                        <input type="text" id="difficulty" class="inputLeft" placeholder="요리 난이도를 입력하세요">
-                        <br>조리 시간 :
-                        <input type="text" id="cookingTime" class="inputLeft" placeholder="조리 시간을 입력하세요">
-                    </p>
-                </div>
-                <div class="rightP">
-                    <p class="p2">
-                        사용 재료<br><br>
-                        <textarea id="ingredients" class="inputRight" placeholder="재료를 입력하세요"></textarea>
-                    </p>
-                    <p class="p2">
-                        요리 순서<br><br>
-                        <textarea id="cookingSteps" class="inputRight" placeholder="요리 순서를 입력하세요"></textarea>
-                    </p>
-                </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div style="float: right;">
-                <input type="button" value="등록" onclick="submitForm()">
-                <input type="button" value="취소" onclick="history.back()">
-            </div>
-        </td>
-    </tr>
-</table>
+                            <p class="p1">
+                                난이도 :
+                                <input type="text" id="difficulty" class="inputLeft" name="recipe_level" placeholder="요리 난이도를 입력하세요">
+                                <br>조리 시간 :
+                                <input type="text" id="cookingTime" class="inputLeft" name="recipe_time" placeholder="조리 시간을 입력하세요">
+                            </p>
+                        </div>
+                        <div class="rightP">
+                            <p class="p2">
+                                사용 재료<br><br>
+                                <textarea id="ingredients" class="inputRight" placeholder="재료를 입력하세요"></textarea>
+                            </p>
+                            <p class="p2">
+                                요리 순서<br><br>
+                                <textarea id="cookingSteps" class="inputRight" name="recipe_content" placeholder="요리 순서를 입력하세요"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="float: right;">
+                        <input type="button" value="등록" onclick="submitForm()">
+                        <input type="button" value="취소" onclick="history.back()">
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-<script>
-    function submitForm() {
-        //유효성 검사
-        var recipeTitle = document.getElementById('recipeTitle').value;
-        var difficulty = document.getElementById('difficulty').value;
-        var cookingTime = document.getElementById('cookingTime').value;
-        var ingredients = document.getElementById('ingredients').value;
-        var cookingSteps = document.getElementById('cookingSteps').value;
+        <script>
+            function submitForm() {
+                //유효성 검사
+                var recipeTitle = document.getElementById('recipeTitle').value;
+                var difficulty = document.getElementById('difficulty').value;
+                var cookingTime = document.getElementById('cookingTime').value;
+                var ingredients = document.getElementById('ingredients').value;
+                var cookingSteps = document.getElementById('cookingSteps').value;
 
-        if (recipeTitle === "" || difficulty === "" || cookingTime === "" || ingredients === "" || cookingSteps === "") {
-            alert("모든 항목을 입력하세요.");
-        } else {
-            // 서버로 데이터를 전송하는 코드 여기 추가해야함
-            alert("수정 완료");
-            window.location.href = "RecipeList.html";
-        }
-    }
-</script>
-</body>
+                if (recipeTitle === "" || difficulty === "" || cookingTime === "" || ingredients === "" || cookingSteps === "") {
+                    alert("모든 항목을 입력하세요.");
+                } else {
+                    // 서버로 데이터를 전송하는 코드 여기 추가해야함
+                    alert("수정 완료");
+                    window.location.href = "RecipeList.html";
+                }
+            }
+        </script>
+        </body>
+    </th:block>
+</th:block>
 
 </html>
