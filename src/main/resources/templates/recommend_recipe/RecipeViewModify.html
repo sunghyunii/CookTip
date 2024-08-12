@@ -37,6 +37,9 @@
                     height: 150px;
 
                 }
+                input{
+                      border-width: 0;
+                }
 
             </style>
             <script>
@@ -57,33 +60,27 @@
                 <td>
                     <div class="grid">
                         <div class="left">
-                            <input type="file" id="image" height="170" width="250"><br>
+                            <input type="file" id="image" height="170" width="250" th:value="${dto.recipe_img}"><br>
                             <span>
-                        <h1>[음식이름]</h1>
+                        <h1><input th:value="${dto.recipe_name}"></h1>
                     </span>
                             <p class="p1">
-                                난이도 :
-                                <br>조리 시간 :
+                                난이도 :<input th:value="${dto.recipe_level}">
+                                <br>조리 시간 :<input th:value="${dto.recipe_time}">
                             </p>
                         </div>
                         <div class="right">
                             <p class="p2">
                                 사용 재료<br>
                             <p class="textarea">
-                                사용재료 정보를 출력할 공간
-                                사용재료 정보를 출력할 공간
-                                사용재료 정보를 출력할 공간
-                                사용재료 정보를 출력할 공간
+                                <input th:value="">
                             </p>
                             </textarea>
                             </p>
                             <p class="p2">
                                 요리 순서<br>
                             <p class="textarea">
-                                요리 순서 정보를 출력할 공간
-                                요리 순서 정보를 출력할 공간
-                                요리 순서 정보를 출력할 공간
-                                요리 순서 정보를 출력할 공간
+                                <input th:value="${dto.recipe_content}">
                             </p>
                             </textarea>
                             </p>
