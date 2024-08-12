@@ -36,6 +36,9 @@
                     width: 400px;
                     height: 150px;
                 }
+                table input{
+                border-width: 0;
+                }
 
             </style>
         </head>
@@ -48,25 +51,25 @@
                         <div class="left"><!--이미지 수정 필요-->
                             <img src="img/image2.jpg" alt="imageNotFound" height="170" width="250"><br>
                             <span>
-                        <h1>[${dto.recipe_name}]</h1>
+                        <h1>[<input type = "text" th:value="${dto.recipe_name}" readonly>]</h1>
                     </span>
                             <p class="p1">
-                                난이도 : ${dto.recipe_level}
-                                <br>조리 시간 : ${dto.recipe_time}
+                                난이도 :<input type = "text" th:value="${dto.recipe_level}" readonly>
+                                <br>조리 시간 : <input type = "text" th:value="${dto.recipe_time}" readonly>
                             </p>
                         </div>
                         <div class="right">
                             <p class="p2">
                                 사용 재료<br>
                             <p class="textarea">
-                                ${dto.recipe_content}
+                                <input type = "text" th:value="${dto.recipe_material}" readonly>
                             </p>
                             </textarea>
                             </p>
                             <p class="p2">
                                 요리 순서<br>
                             <p class="textarea">
-                                ${dto.recipe_content}
+                                <input type = "text" th:value="${dto.recipe_content}" readonly>
                             </p>
                             </textarea>
                             </p>
@@ -76,8 +79,9 @@
             </tr>
             <tr><td>
                 <div style="float: right;">
-                    <input type="button" value="목록" onclick="location.href='RecipeList.html'">
-                    <input type="button" value="수정" onclick="location.href='RecipeViewModify.html'">
+                    <input type="submit" value="목록" onclick="location.href='RecipeList.html'">
+                    <input type="submit" value="수정" onclick="location.href='RecipeViewModify.html'">
+                    <input type="submit" value="삭제" onclick="location.href='RecipeViewRemove.html'">
                 </div>
             </td></tr>
         </table>
