@@ -1,6 +1,9 @@
 package com.example.demo.dto;
 
+import com.example.demo.entity.*;
 import lombok.*;
+
+import java.util.List;
 
 @Builder
 @Getter
@@ -16,6 +19,10 @@ public class UserDTO {
     private int user_number;
     private String user_email;
     private boolean user_auth;
-    private User_health_infoDTO user_health_infoDTO;
+    private User_health_info user_health_info;
+    private List<Recipe_recommend> recipe_recommend;
+    private List<Recipe_replyDTO> recipe_reply;
+    private List<Community> community;
+    private List<Community_reply> community_reply;
 }
 

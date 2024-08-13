@@ -1,5 +1,10 @@
 package com.example.demo.dto;
 
+import com.example.demo.entity.User;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 @Builder
@@ -10,7 +15,7 @@ import lombok.*;
 
 public class User_health_infoDTO {
     private Long user_health_id;
-    private Long user_id;
+    private User user;
     private int age;
     private String height_and_weight;
     private String favoritFood;

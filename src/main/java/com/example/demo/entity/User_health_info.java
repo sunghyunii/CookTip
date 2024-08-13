@@ -17,8 +17,7 @@ public class User_health_info {
     private Long user_health_id;
 
     @OneToOne
-    @JoinColumn(name="user_id")
-    private Long user_id;
+    private User user;
     private int age;
     private String height_and_weight;
     private String favoritFood;

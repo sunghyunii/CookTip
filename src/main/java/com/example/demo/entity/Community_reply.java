@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 
-public class Community_reply {
+public class Community_reply extends Timestamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +22,21 @@ public class Community_reply {
 
     private Long com_num;
 
-    private String reply_id;
+    //private String reply_id;
 
-    private LocalDateTime com_reply_time;
+    //private LocalDateTime com_reply_time;
 
     private String com_reply_content;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID")
+    private User user;
+
+    @ManyToOne
     private Community community;
+
+    //댓글 내용 수정
+    public void changeContent(String com_reply_content){
+        this.com_reply_content=com_reply_content;
+    }
+
 }
