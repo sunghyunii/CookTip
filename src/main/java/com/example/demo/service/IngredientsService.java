@@ -1,3 +1,4 @@
+/*
 package com.example.demo.service;
 
 import com.example.demo.dto.IngredientsDTO;
@@ -17,3 +18,4 @@ public class IngredientsService implements IngredientsServiceInt{
     //재료 정보 삭제
 
 }
+*/

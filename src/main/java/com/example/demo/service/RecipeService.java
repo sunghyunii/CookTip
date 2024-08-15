@@ -1,9 +1,12 @@
-/*package com.example.demo.service;
+package com.example.demo.service;
 
+import com.example.demo.dto.PageRequestDTO;
+import com.example.demo.dto.PageResultDTO;
 import com.example.demo.dto.Recipe_recommendDTO;
 import com.example.demo.entity.Recipe_recommend;
 
 public interface RecipeService {
+    PageResultDTO<Recipe_recommendDTO,Recipe_recommend> getList(PageRequestDTO requestDTO);
     Long regist(Recipe_recommendDTO dto);
     void modify(Recipe_recommendDTO dto);
 
@@ -37,4 +40,4 @@ public interface RecipeService {
 
 
 
-}*/
+}

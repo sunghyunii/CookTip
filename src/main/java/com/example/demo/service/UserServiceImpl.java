@@ -1,5 +1,5 @@
-package com.example.demo.service;
 
+package com.example.demo.service;
 
 import com.example.demo.dto.UserDTO;
 import com.example.demo.dto.User_health_infoDTO;
@@ -54,9 +54,8 @@ public class UserServiceImpl implements UserService{
     }
     //회원 쿡 정보 수정
     @Override
-    public void modify(User_health_infoDTO dto) {
+   public void modify(User_health_infoDTO dto) {
         Optional<User_health_info> result = health_infoRepository.findById(dto.getUser_health_id());
-
         if (result.isPresent()) {
             User_health_info entity = result.get();
             entity.changeAge(dto.getAge());
@@ -69,7 +68,6 @@ public class UserServiceImpl implements UserService{
 
             health_infoRepository.save(entity);
         }
-
     }
-
 }
+

@@ -43,6 +43,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}:jakarta"
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
 	//Annotation Processor란?
 	//Annotation Processor는 컴파일 단계에서 Annotation에 정의된 일렬의 프로세스를 동작하게 하는 것을 의미합니다.

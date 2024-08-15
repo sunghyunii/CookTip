@@ -41,7 +41,7 @@ public interface UserService {
 
     default User_health_info dtoToEntity(User_health_infoDTO dto) {
         User_health_info entity = User_health_info.builder()
-                .user_id(dto.getUser_id())
+                .user_health_id(dto.getUser_health_id())
                 .age(dto.getAge())
                 .height_and_weight(dto.getHeight_and_weight())
                 .favoritFood(dto.getFavoritFood())
@@ -56,7 +56,7 @@ public interface UserService {
     default User_health_infoDTO entityToDto(User_health_info entity){
 
         User_health_infoDTO dto  = User_health_infoDTO.builder()
-                .user_id(entity.getUser_id())
+                .user_health_id(entity.getUser_health_id())
                 .age(entity.getAge())
                 .height_and_weight(entity.getHeight_and_weight())
                 .favoritFood(entity.getFavoritFood())
