@@ -34,7 +34,7 @@ public class User {
     private User_health_info user_health_info;
 
     @OneToMany
-    private List<Recipe_recommend> recipe_recommend;
+    private List<Recipe> recipe_;
 
     @OneToMany
     private List<Recipe_reply> recipe_reply;

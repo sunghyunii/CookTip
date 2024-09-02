@@ -2,41 +2,45 @@ package com.example.demo.service;
 
 import com.example.demo.dto.PageRequestDTO;
 import com.example.demo.dto.PageResultDTO;
-import com.example.demo.dto.Recipe_recommendDTO;
-import com.example.demo.entity.Recipe_recommend;
+import com.example.demo.dto.RecipeDTO;
+import com.example.demo.entity.Recipe;
 import com.example.demo.repository.RecipeRepository;
-import com.fasterxml.jackson.databind.util.ArrayBuilders;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.function.Function;
 
 @Service
+@Log4j2
+@RequiredArgsConstructor
 public class RecipeServiceImpl implements RecipeService {
     private final RecipeRepository repository;
-    //레시피 저장
-    public Long regist(Recipe_recommend recipeRecommend){
-        repository.save(recipeRecommend);
-
-    }
     //추천 레시피 목록 조회
-    PageResultDTO<Recipe_recommendDTO,Recipe_recommend> getList(PageRequestDTO requestDTO){
-        Pageable pageable = requestDTO.getPageable(Sort.by("recipe_num").descending());
-        Page<Recipe_recommend> result = repository.findAll(pageable);
+    public PageResultDTO<RecipeDTO, Recipe> getList(PageRequestDTO requestDTO){
+        Pageable pageable = requestDTO.getPageable(Sort.by("recipeId").descending());
+        Page<Recipe> result = repository.findAll(pageable);
 
-        Function<Recipe_recommend, Recipe_recommendDTO> fn = (entity ->
+        Function<Recipe, RecipeDTO> fn = (entity ->
                 entityToDto(entity));
         return new PageResultDTO<>(result, fn);
     }
 
-    //레시피 읽기
     @Override
-    public Recipe_recommendDTO read(Long id) {
-        return ;
+    public Long regist(RecipeDTO dto) {
+        Recipe entity = dtoToEntity(dto);
+        repository.save(entity);
+
+        return entity.getRecipeId();
+    }
+
+    //레시피 읽기
+  /*  @Override
+    public void read(Long id) {
+
 
     }
 
@@ -53,6 +57,6 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public void remove(Long id) {
 
-    }
+    }*/
 
 }

@@ -56,7 +56,8 @@
         </head>
 
         <body>
-        <form th:action="@{/recommend_recipe/RecipeRegist}" th:method="post">
+        //th:action="@{/recommend_recipe/RecipeRegist}" th:method="post"
+        <form>
             <table class="grid">
                 <tr>
                     <td>
@@ -90,7 +91,7 @@
         <tr>
             <td>
                 <div style="float: right;">
-                    <input type="submit" value="등록" onclick="submitForm()">
+                    <button class = "uploadBtn" value="등록" ></button>
                     <input type="button" value="취소" onclick="history.back()">
                 </div>
             </td>
@@ -99,6 +100,32 @@
         </form>
 
         <script>
+            $('.uploadBtn).click(function(){
+                var formData = new FormData();
+                var inputFile = &("input[type = 'file']");
+                formData.append(inputFile)
+                console.log(files[i]);
+
+            $.ajax({
+                url: '/uploadAjax;,
+                processData: false,
+                contentType: false,
+                data: formData,
+                type: 'POST',
+                dataType:'json'.
+                success: function(result){
+                    console.log(textStatus);
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    console.log(textStatus)
+                }
+                });
+
+
+
+            });
+
+
             function submitForm() {
                 //유효성 검사
                 var recipeTitle = document.getElementById('recipeTitle').value;

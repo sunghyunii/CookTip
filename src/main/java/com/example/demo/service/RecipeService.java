@@ -2,42 +2,41 @@ package com.example.demo.service;
 
 import com.example.demo.dto.PageRequestDTO;
 import com.example.demo.dto.PageResultDTO;
-import com.example.demo.dto.Recipe_recommendDTO;
-import com.example.demo.entity.Recipe_recommend;
+import com.example.demo.dto.RecipeDTO;
+import com.example.demo.entity.Recipe;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface RecipeService {
-    PageResultDTO<Recipe_recommendDTO,Recipe_recommend> getList(PageRequestDTO requestDTO);
-    Long regist(Recipe_recommendDTO dto);
-    void modify(Recipe_recommendDTO dto);
+    PageResultDTO<RecipeDTO, Recipe> getList(PageRequestDTO requestDTO);
+
+    Long regist(RecipeDTO dto);
+   /* void modify(Recipe_recommendDTO dto);
 
     void remove(Long id);
 
-    void read(Long id);
+    void read(Long id);*/
 
-    default Recipe_recommend dtoToEntity(Recipe_recommendDTO dto){
-        Recipe_recommend entity  = Recipe_recommend.builder()
-                .recipe_num(dto.getRecipe_num())
-                .recipe_category(dto.getRecipe_category())
-                .recipe_title(dto.getRecipe_title())
-                .recipe_readcount(dto.getRecipe_readcount())
-                .recipe_content(dto.getRecipe_content())
+    default Recipe dtoToEntity(RecipeDTO dto){
+        Recipe entity  = Recipe.builder()
+                .recipeId(dto.getRecipeId())
+                .category(dto.getCategory())
+                .title(dto.getTitle())
+                .readcount(dto.getReadcount())
+                .content(dto.getContent())
                 .build();
         return entity;
     }
 
-    default Recipe_recommendDTO entityToDto(Recipe_recommend entity){
-        Recipe_recommendDTO dto  = Recipe_recommendDTO.builder()
-                .recipe_num(entity.getRecipe_num())
-                .recipe_category(entity.getRecipe_category())
-                .recipe_title(entity.getRecipe_title())
-                .recipe_readcount(entity.getRecipe_readcount())
-                .recipe_content(entity.getRecipe_content())
+    default RecipeDTO entityToDto(Recipe entity){
+        RecipeDTO dto  = RecipeDTO.builder()
+                .recipeId(entity.getRecipeId())
+                .category(entity.getCategory())
+                .title(entity.getTitle())
+                .readcount(entity.getReadcount())
+                .content(entity.getContent())
                 .build();
         return dto;
     }
-
-
-
 
 
 }
