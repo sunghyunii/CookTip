@@ -100,12 +100,12 @@
         </form>
 
         <script>
-            $('.uploadBtn).click(function(){
-                var formData = new FormData();
-                var inputFile = &("input[type = 'file']");
-                formData.append(inputFile)
-                console.log(files[i]);
+            $(document).ready(function(e) {
+                var regex = new RegExp("(.*?)\.(exe|sh|zip|alz|tiff)$");
 
+            }
+
+            //실제 업로드 되는 부분
             $.ajax({
                 url: '/uploadAjax;,
                 processData: false,
