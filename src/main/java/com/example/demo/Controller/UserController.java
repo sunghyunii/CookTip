@@ -1,10 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.User_health_infoDTO;
-import com.example.demo.entity.User_health_info;
+import com.example.demo.dto.HealthInfoDTO;
 import org.springframework.ui.Model;
 import com.example.demo.dto.UserDTO;
-import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -32,21 +30,21 @@ public class UserController {
     //회원 쿡 정보 보기
     @GetMapping({"/userCookInfo","/userCookModifyForm"} )
     public void userCookInfo(Long id, Model model) {
-        User_health_infoDTO user_health_infoDTO =  userService.cookInfoRead(id);
-        model.addAttribute("user_health_infoDTO", user_health_infoDTO);
+        HealthInfoDTO _health_infoDTO =  userService.cookInfoRead(id);
+        model.addAttribute("user_health_infoDTO", _health_infoDTO);
     }
     //회원 정보 수정
     @PostMapping("/UserModifyForm")
     public String userModify(UserDTO userDTO, RedirectAttributes redirectAttributes) throws Exception {
         userService.modify(userDTO);
-        redirectAttributes.addFlashAttribute("user_id", userDTO.getUser_id());
+        redirectAttributes.addFlashAttribute("user_id", userDTO.getId());
         return "redirect:/user/UserModifyForm";
     }
     //회원 쿡정보 수정
     @PostMapping( "/userCookModifyForm")
-    public String userCookModify(User_health_infoDTO user_health_infoDTO, RedirectAttributes redirectAttributes) throws Exception {
-        userService.modify(user_health_infoDTO);
-        redirectAttributes.addFlashAttribute("user_health_info_id", user_health_infoDTO.getUser_health_id());
+    public String userCookModify(HealthInfoDTO _health_infoDTO, RedirectAttributes redirectAttributes) throws Exception {
+        userService.modify(_health_infoDTO);
+        redirectAttributes.addFlashAttribute("user_health_info_id", _health_infoDTO.getHealthInfoId());
         return "redirect:/user/userCookModifyForm";
     }
 }

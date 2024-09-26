@@ -2,9 +2,9 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.UserDTO;
-import com.example.demo.dto.User_health_infoDTO;
+import com.example.demo.dto.HealthInfoDTO;
+import com.example.demo.entity.HealthInfo;
 import com.example.demo.entity.User;
-import com.example.demo.entity.User_health_info;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.User_health_infoRepository;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService{
     }
     //회원 쿡 정보 조회
     @Override
-    public User_health_infoDTO cookInfoRead(Long id) {
-        Optional<User_health_info> result = health_infoRepository.findById(id);
+    public HealthInfoDTO cookInfoRead(Long id) {
+        Optional<HealthInfo> result = health_infoRepository.findById(id);
         return result.isPresent() ? entityToDto(result.get()) : null;
 
     }
@@ -38,15 +38,15 @@ public class UserServiceImpl implements UserService{
     //회원 정보 수정
     @Override
     public void modify(UserDTO dto) {
-        Optional<User> result = user_infoRepository.findById(dto.getUser_id());
+        Optional<User> result = user_infoRepository.findById(dto.getId());
 
         if (result.isPresent()) {
             User entity = result.get();
-            entity.changeName(dto.getUser_name());
-            entity.changeAddress(dto.getUser_address());
-            entity.changePhone(dto.getUser_phone());
-            entity.changeNumber(dto.getUser_number());
-            entity.changeEmail(dto.getUser_email());
+            entity.changeName(dto.getName());
+            entity.changeAddress(dto.getAddress());
+            entity.changePhone(dto.getPhone());
+            entity.changeNumber(dto.getNumber());
+            entity.changeEmail(dto.getEmail());
 
             user_infoRepository.save(entity);
         }
@@ -54,13 +54,13 @@ public class UserServiceImpl implements UserService{
     }
     //회원 쿡 정보 수정
     @Override
-   public void modify(User_health_infoDTO dto) {
-        Optional<User_health_info> result = health_infoRepository.findById(dto.getUser_health_id());
+   public void modify(HealthInfoDTO dto) {
+        Optional<HealthInfo> result = health_infoRepository.findById(dto.getHealthInfoId());
         if (result.isPresent()) {
-            User_health_info entity = result.get();
+            HealthInfo entity = result.get();
             entity.changeAge(dto.getAge());
             entity.changeHeight_and_weight(dto.getHeight_and_weight());
-            entity.changefavoritFood(dto.getFavoritFood());
+            entity.changefavoritFood(dto.getFavoriteFood());
             entity.changeCategory(dto.getCategory());
             entity.changeAddendum(dto.getAddendum());
             entity.changeAllergy(dto.getAllergy());

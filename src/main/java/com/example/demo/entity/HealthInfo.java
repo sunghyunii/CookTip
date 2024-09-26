@@ -11,16 +11,15 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 
-public class User_health_info {
+public class HealthInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_health_id;
-
+    private Long healthInfoId;
     @OneToOne
     private User user;
     private int age;
     private String height_and_weight;
-    private String favoritFood;
+    private String favoriteFood;
     private String category;
     private String addendum;
     private String allergy;
@@ -32,8 +31,8 @@ public class User_health_info {
     public void changeHeight_and_weight(String height_and_weight) {
         this.height_and_weight = height_and_weight;
     }
-    public void changefavoritFood(String favoritFood) {
-        this.favoritFood = favoritFood;
+    public void changefavoritFood(String favoriteFood) {
+        this.favoriteFood = favoriteFood;
     }
     public void changeCategory(String category) {
         this.category = category;

@@ -38,121 +38,44 @@
     상단 요소 삽입부분
 </div>-->
 <div class="grid">
-    <!--<table class="leftList">
-        <tr>
-            <td>
-                <a href="SearchRecipeList.html">추천 레시피</a>
-            </td>
-        </tr>
-        <tr>
-            <td onclick="">
-                <a href="TrendRecipeList.html">트렌드 레시피</a>
-            </td>
-        </tr>
-        <tr>
-            <td onclick="">
-                <a href="materialList.html">재료 상품</a>
-            </td>
-        </tr>
-        <tr>
-            <td onclick="">
-                <a href="BoardList.html">커뮤니티</a>
-            </td>
-        </tr>
-    </table>-->
     <table class="rightList">
         <tr th:each="dto: ${result.dtoList}">
-            <td> <!-- 이미지바꾸기, 음식 정보 및 이미지 데이터베이스 연결하기 -->
-                <img id="image1" src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                [[&{dto.recipe_img}]]
-                <br>
-                <span>
-                        난이도 : [[&{dto.recipe_level}]]
-                        <br>시간 : [[&{dto.recipe_time}]]
-                    </span>
-            </td>
-            <!--<td>
-                <img id="image2"  src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                음식1
-                <br>
-                <span>
-                        난이도 :
-                        <br>시간 :
-                    </span>
-            </td>
             <td>
-                <img id="image3" src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                음식1
+                <!--${...}: 컨텍스트에서 변수 값
+                //[[...]]: Thymeleaf의 인라인 표현식,텍스트 내용을 출력 -->
+                <a th:href="@{/recommend_recipe/RecipeViewDetail(recipeId =${dto.recipeId},page=${result.page})}">
+                    [[${dto.title}]]
+                </a>
                 <br>
                 <span>
-                        난이도 :
-                        <br>시간 :
+                        난이도 : [[${dto.level}]]
+                        <br>시간 : [[${dto.time}]]
                     </span>
-            </td>-->
+            </td>
         </tr>
-       <!-- <tr>
-            <td>
-                <img id="image4" src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                음식1
-                <br>
-                <span>
-                        난이도 :
-                        <br>시간 :
-                    </span>
-            </td>
-            <td>
-                <img id="image5" src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                음식1
-                <br>
-                <span>
-                        난이도 :
-                        <br>시간 :
-                    </span>
-            </td>
-            <td>
-                <img id="image6" src=""
-                     alt="imageNotFound" width="150px" height="100px" onclick="location.href='RecipeViewDetail.html'"><br>
-                음식1
-                <br>
-                <span>
-                        난이도 : 
-                        <br>시간 : 
-                    </span>
-            </td>
-        </tr>-->
         <tr>
             <td>
                 <input type="button" value="등록" onclick="location.href='RecipeRegist.html'">
             </td>
         </tr>
     </table>
-</div>
-<script>
-    // 클라이언트 사이드에서 이미지 요청 예시
-    var imageId = 1; // 예시로 이미지 ID를 설정
-    var imageUrl = "/images/" + imageId; // 이미지를 요청할 URL
+    <ul>
+        <li class="page-item" th:if="${result.prev}">
+            <a class="page-link" th:href="@{/recommend_recipe/RecipeList(page=${result.start-1}}">prev
+            </a>previous</li>
+        <li th:class="'page-item' + ${result.page==page?'active':''}" th:each="page: ${result.pageList}">
+            <a class="page-link" th:href="@{/recommend_recipe/RecipeList(page=${page})}"}>
+                [[${page}]]
+            </a>
+        </li>
+        <li th:class="page-item" th:each="page: ${result.next}">
+            <a class="page-link" th:href="@{recommend_recipe/RecipeList(page=${result.end+1})}"}>
+                [[${page}]]
+            </a>
+        </li>
 
-    // 이미지 요청 및 표시
-    fetch(imageUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.blob(); // 이미지 데이터를 Blob 형식으로 변환
-        })
-        .then(blob => {
-            var objectURL = URL.createObjectURL(blob); // Blob URL 생성
-            document.getElementById("imageDisplay").src = objectURL; // 이미지 표시
-        })
-        .catch(error => {
-            console.error('Error fetching image:', error);
-        });
-</script>
+    </ul>
+</div>
 </body>
     </th:block>
 </th:block>

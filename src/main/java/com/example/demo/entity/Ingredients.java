@@ -17,43 +17,25 @@ import java.util.List;
 public class Ingredients {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long food_ingred_num;
-    //@OneToOne
-    //@JoinColumn(name="ingred_info")
-    private String food_ingred_name;
-    private String food_ingred_content;
-    private int food_ingred_price;
-    private String food_ingred_img;
-
+    private long ingredId;
+    private String ingredName;
+    private String ingredContent;
+    private int ingredPrice;
+    private String ingredImg;
     @OneToMany
-    private List<Trend_Ingredients> trend_ingredientsList;
-    @OneToMany
-    private List<Recipe_Ingredients> recipe_ingredients;
+    private List<IngredImage> ingredImage;
 
-
-    /*public Ingredients(int food_ingred_num, String food_ingred_name, String food_ingred_content, int food_ingred_price, Blob food_ingred_img) {
-        this.food_ingred_num = food_ingred_num;
-        this.food_ingred_name = food_ingred_name;
-        this.food_ingred_content = food_ingred_content;
-        this.food_ingred_price = food_ingred_price;
-        this.food_ingred_img = food_ingred_img;
-    }*/
-    /*public void changeNum(int ingre_num){
-        food_ingred_num=ingre_num;
-    }*/
-
-
-    public void changeName(String ingre_name){
-        food_ingred_name=ingre_name;
+    public void changeName(String ingredName){
+        this.ingredName=ingredName;
     }
-    public void changeContent(String ingre_content){
-        food_ingred_content=ingre_content;
+    public void changeContent(String ingredContent){
+        this.ingredContent=ingredContent;
     }
-   public void changePrice(int ingre_price){
-        food_ingred_price=ingre_price;
+   public void changePrice(int ingredPrice){
+       this.ingredPrice=ingredPrice;
     }
-    public void changeImg(String ingre_img){
-        food_ingred_img=ingre_img;
+    public void changeImg(String ingredImg){
+        this.ingredImg=ingredImg;
     }
 }
 

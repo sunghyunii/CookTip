@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.dto.RecipeDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,36 +15,25 @@ import java.util.List;
 @ToString
 public class User {
     @Id
-    private Long user_id;
-
-    private String user_pw;
-
-    private String user_name;
-
-    private String user_address;
-
-    private int user_phone;
-
-    private int user_number;
-
-    private String user_email;
-
-    private boolean user_auth;
+    private Long id;
+    private String pw;
+    private String name;
+    private String address;
+    private int phone;
+    private int number;
+    private String email;
+    private boolean auth;
 
     @OneToOne
-    private User_health_info user_health_info;
-
+    private HealthInfo healthInfo;
     @OneToMany
-    private List<Recipe> recipe_;
-
+    private List<Recipe> recipeList;
     @OneToMany
-    private List<Recipe_reply> recipe_reply;
-
+    private List<RecipeReply> recipeReplyList;
     @OneToMany
-    private List<Community> community;
-
+    private List<Community> communityList;
     @OneToMany
-    private List<Community_reply> community_reply;
+    private List<CommunityReply> communityReplyList;
 
 
     //mappedBy = "주체 엔티티에서 외래키 관리하는 필드"
@@ -51,19 +41,18 @@ public class User {
     //주인이 아니면 읽기만 가능
 
     public void changeName(String name) {
-        user_name = name;
+        this.name = name;
     }
     public void changeAddress(String address) {
-        user_address = address;
+        this.address = address;
     }
     public void changePhone(int phone) {
-        user_phone = phone;
+        this.phone = phone;
     }
-    public void changeNumber(int Number) {
-        user_number = Number;
+    public void changeNumber(int number) {
+        this.number = number;
     }
-    public void changeEmail(String email) {user_email = email;
-    }
+    public void changeEmail(String email) {this.email = email;}
 
 }
 

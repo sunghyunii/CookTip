@@ -1,6 +1,8 @@
 package com.example.demo.dto;
 
 import com.example.demo.entity.*;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 import java.util.List;
@@ -11,18 +13,18 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class UserDTO {
-    private Long user_id;
-    private String user_pw;
-    private String user_name;
-    private String user_address;
-    private int user_phone;
-    private int user_number;
-    private String user_email;
-    private boolean user_auth;
-    private User_health_info user_health_info;
-    private List<Recipe> recipe_;
-    private List<Recipe_replyDTO> recipe_reply;
-    private List<Community> community;
-    private List<Community_reply> community_reply;
+    private Long id;
+    private String pw;
+    private String name;
+    private String address;
+    private int phone;
+    private int number;
+    private String email;
+    private boolean auth;
+    private HealthInfoDTO healthInfoDTO;
+    private List<RecipeDTO> recipeDTOList;
+    private List<RecipeReplyDTO> recipeReplyDTOList;
+    private List<CommunityDTO> communityDTOList;
+    private List<CommunityReplyDTO> communityReplyDTOList;
 }
 

@@ -52,36 +52,61 @@
                     font-size: 14px;
                     font-weight: 500;
                 }
+                .uploadResult{
+                    width:100%;
+                    background-color:gray;
+                    margin-top:10px;
+                }
+                .uploadResult ul{
+                    display:flex;
+                    flex-flow:row;
+                    justify-content:center;
+                    align-items:center;
+                    vertical-align:top;
+                    overflow:auto;
+                }
+                .uploadResult ul li{
+                    list-style:none;
+                    padding:10px;
+                    margin-left: 2em;
+                }
+                .uploadResult ul li img{
+                    width:100px;
+                }
             </style>
         </head>
 
         <body>
-        //th:action="@{/recommend_recipe/RecipeRegist}" th:method="post"
-        <form>
+        <form th:action="@{/recommend_recipe/RecipeRegist}" th:method="post">
             <table class="grid">
                 <tr>
                     <td>
                         <div class="grid">
                             <div class="left">
-                                <input type="file" height="170" width="250"><br><br>
-                                <span>
-                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none; font-size: 20px; font-weight: 800;" name="recipe_title" th:value="${dto.recipe_title}" placeholder="레시피 제목을 입력하세요">
+
+                            <input type="text" id="recipeTitle" style="height: 30px; width: 250px; border: none;
+                             font-size: 20px; font-weight: 800;" name="title"
+                                   placeholder="레시피 제목을 입력하세요">
                         </span>
                                 <p class="p1">
                                     난이도 :
-                                    <input type="text" id="difficulty" class="inputLeft" name="recipe_level" th:value="${dto.recipe_level}" placeholder="요리 난이도를 입력하세요">
+                                    <input type="text" id="difficulty" class="inputLeft" name="level"
+                                           placeholder="요리 난이도를 입력하세요">
                                     <br>조리 시간 :
-                                    <input type="text" id="cookingTime" class="inputLeft" name="recipe_time" th:value="${dto.recipe_time}" placeholder="조리 시간을 입력하세요">
+                                    <input type="text" id="cookingTime" class="inputLeft" name="time"
+                                           placeholder="조리 시간을 입력하세요">
                                 </p>
                             </div>
                             <div class="rightP">
                                 <p class="p2">
                                     사용 재료<br><br>
-                                    <textarea id="ingredients" class="inputRight" placeholder="재료를 입력하세요"></textarea>
+                                    <textarea id="ingredients" class="inputRight" placeholder="재료를 입력하세요"
+                                    name = "ingredients"></textarea>
                                 </p>
                                 <p class="p2">
                                     요리 순서<br><br>
-                                    <textarea id="cookingSteps" class="inputRight" th:value="${dto.recipe_content}" name="recipe_content" placeholder="요리 순서를 입력하세요"></textarea>
+                                    <textarea id="cookingSteps" class="inputRight"
+                                              name="content" placeholder="요리 순서를 입력하세요"></textarea>
                                 </p>
                             </div>
                         </div>
@@ -91,7 +116,7 @@
         <tr>
             <td>
                 <div style="float: right;">
-                    <button class = "uploadBtn" value="등록" ></button>
+                    <input type = "submit" class = "btn-primary" value="등록" ></input>
                     <input type="button" value="취소" onclick="history.back()">
                 </div>
             </td>
@@ -99,50 +124,6 @@
         </table>
         </form>
 
-        <script>
-            $(document).ready(function(e) {
-                var regex = new RegExp("(.*?)\.(exe|sh|zip|alz|tiff)$");
-
-            }
-
-            //실제 업로드 되는 부분
-            $.ajax({
-                url: '/uploadAjax;,
-                processData: false,
-                contentType: false,
-                data: formData,
-                type: 'POST',
-                dataType:'json'.
-                success: function(result){
-                    console.log(textStatus);
-                },
-                error: function(jqXHR, textStatus, errorThrown){
-                    console.log(textStatus)
-                }
-                });
-
-
-
-            });
-
-
-            function submitForm() {
-                //유효성 검사
-                var recipeTitle = document.getElementById('recipeTitle').value;
-                var difficulty = document.getElementById('difficulty').value;
-                var cookingTime = document.getElementById('cookingTime').value;
-                var ingredients = document.getElementById('ingredients').value;
-                var cookingSteps = document.getElementById('cookingSteps').value;
-
-                if (recipeTitle === "" || difficulty === "" || cookingTime === "" || ingredients === "" || cookingSteps === "") {
-                    alert("모든 항목을 입력하세요.");
-                } else {
-                    // 서버로 데이터를 전송하는 코드 여기 추가해야함
-                    alert("수정 완료");
-                    window.location.href = "RecipeList.html";
-                }
-            }
-        </script>
         </body>
     </th:block>
 </th:block>

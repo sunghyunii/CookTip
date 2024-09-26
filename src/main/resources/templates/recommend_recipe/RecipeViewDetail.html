@@ -49,27 +49,26 @@
                 <td>
                     <div class="grid">
                         <div class="left"><!--이미지 수정 필요-->
-                            <img src="img/image2.jpg" alt="imageNotFound" height="170" width="250"><br>
                             <span>
-                        <h1>[<input type = "text" th:value="${dto.recipe_name}" readonly>]</h1>
+                        <h1>[<input type = "text" th:value="${dto.title}" readonly>]</h1>
                     </span>
                             <p class="p1">
-                                난이도 :<input type = "text" th:value="${dto.recipe_level}" readonly>
-                                <br>조리 시간 : <input type = "text" th:value="${dto.recipe_time}" readonly>
+                                난이도 :<input type = "text" th:value="${dto.level}" readonly>
+                                <br>조리 시간 : <input type = "text" th:value="${dto.time}" readonly>
                             </p>
                         </div>
                         <div class="right">
                             <p class="p2">
                                 사용 재료<br>
                             <p class="textarea">
-                                <input type = "text" th:value="${dto.recipe_material}" readonly>
+                                <input type = "text" th:value="${dto.ingredients}" readonly>
                             </p>
                             </textarea>
                             </p>
                             <p class="p2">
                                 요리 순서<br>
                             <p class="textarea">
-                                <input type = "text" th:value="${dto.recipe_content}" readonly>
+                                <input type = "text" th:value="${dto.content}" readonly>
                             </p>
                             </textarea>
                             </p>

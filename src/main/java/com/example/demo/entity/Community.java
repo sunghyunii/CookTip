@@ -17,37 +17,22 @@ import java.util.List;
 public class Community extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long com_num;
-
-    private String com_category;
-
-    private String com_title;
-
-    //private LocalDateTime com_time;
-
-    private int com_readcount;
-
-    private String com_content;
-
+    private Long comId;
+    private String comTitle;
+    private String comContent;
     @ManyToOne
     private User user;
-
     @OneToMany
-    private List<Community_reply> community_reply;
-
-    //카테고리 수정
-    public void changeCategory(String com_category){
-        this.com_category=com_category;
-    }
+    private List<CommunityReply> community_reply;
 
     //제목 수정
-    public void changeTitle(String com_title){
-        this.com_title=com_title;
+    public void changeComTitle(String comTitle){
+        this.comTitle=comTitle;
     }
 
     //내용 수정
-    public void changeContent(String com_content){
-        this.com_content=com_content;
+    public void changeContent(String comContent){
+        this.comContent=comContent;
     }
 
 

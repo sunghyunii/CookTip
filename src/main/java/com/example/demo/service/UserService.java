@@ -1,25 +1,25 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.UserDTO;
-import com.example.demo.dto.User_health_infoDTO;
+import com.example.demo.dto.HealthInfoDTO;
 import com.example.demo.entity.User;
-import com.example.demo.entity.User_health_info;
+import com.example.demo.entity.HealthInfo;
 
 public interface UserService {
     UserDTO userInfoRead(Long id);
-    User_health_infoDTO cookInfoRead(Long id);
+    HealthInfoDTO cookInfoRead(Long id);
     public void modify(UserDTO dto);
-    public void modify(User_health_infoDTO dto);
+    public void modify(HealthInfoDTO dto);
     default User dtoToEntity(UserDTO dto) {
                 User entity = User.builder()
-                .user_id(dto.getUser_id())
-                .user_pw(dto.getUser_pw())
-                .user_name(dto.getUser_name())
-                .user_address(dto.getUser_address())
-                .user_phone(dto.getUser_phone())
-                .user_number(dto.getUser_number())
-                .user_email(dto.getUser_email())
-                .user_auth(dto.isUser_auth())
+                .id(dto.getId())
+                .pw(dto.getPw())
+                .name(dto.getName())
+                .address(dto.getAddress())
+                .phone(dto.getPhone())
+                .number(dto.getNumber())
+                .email(dto.getEmail())
+                .auth(dto.isAuth())
                 .build();
         return entity;
     }
@@ -27,24 +27,24 @@ public interface UserService {
     default UserDTO entityToDto(User entity){
 
         UserDTO dto  = UserDTO.builder()
-                .user_id(entity.getUser_id())
-                .user_pw(entity.getUser_pw())
-                .user_name(entity.getUser_name())
-                .user_address(entity.getUser_address())
-                .user_phone(entity.getUser_phone())
-                .user_number(entity.getUser_number())
-                .user_email(entity.getUser_email())
-                .user_auth(entity.isUser_auth())
+                .id(entity.getId())
+                .pw(entity.getPw())
+                .name(entity.getName())
+                .address(entity.getAddress())
+                .phone(entity.getPhone())
+                .number(entity.getNumber())
+                .email(entity.getEmail())
+                .auth(entity.isAuth())
                 .build();
         return dto;
     }
 
-    default User_health_info dtoToEntity(User_health_infoDTO dto) {
-        User_health_info entity = User_health_info.builder()
-                .user_health_id(dto.getUser_health_id())
+    default HealthInfo dtoToEntity(HealthInfoDTO dto) {
+        HealthInfo entity = HealthInfo.builder()
+                .healthInfoId(dto.getHealthInfoId())
                 .age(dto.getAge())
                 .height_and_weight(dto.getHeight_and_weight())
-                .favoritFood(dto.getFavoritFood())
+                .favoriteFood(dto.getFavoriteFood())
                 .category(dto.getCategory())
                 .addendum(dto.getAddendum())
                 .allergy(dto.getAllergy())
@@ -53,13 +53,13 @@ public interface UserService {
         return entity;
     }
 
-    default User_health_infoDTO entityToDto(User_health_info entity){
+    default HealthInfoDTO entityToDto(HealthInfo entity){
 
-        User_health_infoDTO dto  = User_health_infoDTO.builder()
-                .user_health_id(entity.getUser_health_id())
+        HealthInfoDTO dto  = HealthInfoDTO.builder()
+                .healthInfoId(entity.getHealthInfoId())
                 .age(entity.getAge())
                 .height_and_weight(entity.getHeight_and_weight())
-                .favoritFood(entity.getFavoritFood())
+                .favoriteFood(entity.getFavoriteFood())
                 .category(entity.getCategory())
                 .addendum(entity.getAddendum())
                 .allergy(entity.getAllergy())

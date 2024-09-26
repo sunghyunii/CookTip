@@ -231,25 +231,25 @@
                     <form id="signup-form" action="user/userCookModifyForm" method="post">
 
                         <label for="userAge">나이</label>
-                        <input type="text" id="userAge" name="userAge" th:value="${user_health_infoDTO.age}">
+                        <input type="text" id="userAge" name="userAge" th:value="${_health_infoDTO.age}">
 
                         <label for="userPhysical">키/체중</label>
-                        <input type="text" id="userPhysical" name="userPhysical" th:value="${user_health_infoDTO.height_and_weight}">
+                        <input type="text" id="userPhysical" name="userPhysical" th:value="${_health_infoDTO.height_and_weight}">
 
                         <label for="food">선호하는음식</label>
-                        <input type="text" id="food" name="food" th:value="${user_health_infoDTO.favoritFood}">
+                        <input type="text" id="food" name="food" th:value="${_health_infoDTO.favoritFood}">
 
                         <label for="foodCt">선호음식카테고리</label>
-                        <input type="text" id="foodCt" name="foodCt" th:value="${user_health_infoDTO.category}">
+                        <input type="text" id="foodCt" name="foodCt" th:value="${_health_infoDTO.category}">
 
                         <label for="add">추가사항</label>
-                        <input type="text" id="add" name="add" th:value="${user_health_infoDTO.addendum}">
+                        <input type="text" id="add" name="add" th:value="${_health_infoDTO.addendum}">
 
                         <label for="allergy">알레르기</label>
-                        <input type="text" id="allergy" name="allergy"th:value="${user_health_infoDTO.allergy}">
+                        <input type="text" id="allergy" name="allergy"th:value="${_health_infoDTO.allergy}">
 
                         <label for="foodKeywd">음식키워드</label>
-                        <input type="text" id="foodKeywd" name="foodKeywd" th:value="${user_health_infoDTO.foodKeyword}">
+                        <input type="text" id="foodKeywd" name="foodKeywd" th:value="${_health_infoDTO.foodKeyword}">
 
                         <button class="next" type="submit" th:href="#">수정</button>
                     </form>
